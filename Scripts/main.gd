@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var snowflake_scene := preload("res://Scenes/good_snowflake.tscn")
 @onready var health_label: Label = %Health
+@onready var shake_camera: Camera2D = $ShakeCamera
 
 var timer := 0.0
 var global_timer := 0.0
@@ -12,8 +13,10 @@ var time_to_snowf_incr_from := 0.8
 var time_to_snowf_incr_to := 2.0
 var min_time_from_snowf := 0.1
 var min_time_to_snowf := 0.5
+var camera_shake_noice: FastNoiseLite
 
 func _ready() -> void:
+	camera_shake_noice = FastNoiseLite.new()
 	Global.Main = self
 	printerr("Turn off Always of Top!!!!")
 
@@ -51,3 +54,8 @@ func update_health(health: int):
 func restart_game():
 	get_tree().paused = true
 	%DeathWindow.show()
+
+
+func start_camera_shake(intensity: float):
+	var camera_offset = camera_shake_noice.get_noise_1d(Time.get_ticks_usec())
+	shake_camera.offset = Vector2(camera_offset, camera_offset) * intensity

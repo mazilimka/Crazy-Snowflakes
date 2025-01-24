@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://13uox2muyeih"]
+[gd_scene load_steps=5 format=3 uid="uid://13uox2muyeih"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_at2ng"]
 [ext_resource type="Texture2D" uid="uid://b3cpdsqgojvau" path="res://assets_and_referens/Simple Shapes/Heart.png" id="1_mwvct"]
+[ext_resource type="Material" uid="uid://cq3r3l8qroets" path="res://new_particle_process_material.tres" id="3_3du0x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qls1o"]
 radius = 9.0
@@ -23,3 +24,38 @@ shape = SubResource("CapsuleShape2D_qls1o")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 17, 18, 0, 20, -4, 20, -7, 19, -11, 16, -15, 10, -17, 5, -16, 1, -13, 0, -12, -4, -15, -10, -17, -15, -16, -18, -13, -19, -11, -20, -7, -19, -3, -17, 1, -13, 5)
+
+[node name="FallParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 16)
+rotation = 3.14159
+emitting = false
+amount = 50
+process_material = ExtResource("3_3du0x")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.22
+
+[node name="FallParticles2" type="GPUParticles2D" parent="."]
+position = Vector2(0, 16)
+rotation = 3.14159
+emitting = false
+amount = 50
+process_material = ExtResource("3_3du0x")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.22
+fixed_fps = 60
+
+[node name="FallParticles3" type="GPUParticles2D" parent="."]
+position = Vector2(0, 16)
+rotation = 3.14159
+emitting = false
+amount = 50
+process_material = ExtResource("3_3du0x")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.22
+fixed_fps = 60
+
+[node name="MarkerForParticle" type="Marker2D" parent="."]
+position = Vector2(0, 16)

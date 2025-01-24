@@ -7,8 +7,8 @@ func _ready() -> void:
 
 func _restart_pressed():
 	hide()
-	get_tree().reload_current_scene()
 	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 
 func _quit_pressed():

@@ -1,0 +1,23 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cq3r3l8qroets"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 4
+emission_point_count = 1
+direction = Vector3(1.445, 7.505, -10.625)
+spread = 82.614
+initial_velocity_min = 113.73
+initial_velocity_max = 237.87
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 132.88
+gravity = Vector3(0, 200, 0)
+linear_accel_min = -89.13
+linear_accel_max = -3.26
+radial_accel_min = -43.48
+radial_accel_max = -43.48
+tangential_accel_min = -38.04
+tangential_accel_max = -38.04
+scale_max = 2.0
+scale_over_velocity_min = 414.16
+scale_over_velocity_max = 414.16
+color = Color(0.262745, 1, 1, 1)

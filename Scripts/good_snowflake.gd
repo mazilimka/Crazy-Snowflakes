@@ -1,6 +1,6 @@
 extends Area2D
 
-enum STATE { GOOD, BAD }
+enum STATE { GOOD, TRANSFORMATION, BAD }
 
 @onready var sprite: Sprite2D = $Sprite2D
 
@@ -26,7 +26,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	timer += delta
 	if timer >= time_to_transformation and is_can_transform:
-		current_state = STATE.BAD
+		current_state = STATE.TRANSFORMATION
+		timer = 0
 	
 	if not is_can_transform:
 		good_snowflokes(delta)
@@ -37,6 +38,8 @@ func _physics_process(delta: float) -> void:
 			good_snowflokes(delta)
 		STATE.BAD:
 			bad_snowflokes(delta)
+		STATE.TRANSFORMATION:
+			good_snowflokes(delta)
 
 
 func good_snowflokes(delta: float):
@@ -54,17 +57,24 @@ func update_snowfloke(state: STATE):
 	match state:
 		STATE.GOOD:
 			sprite.modulate = Color.LIGHT_SKY_BLUE
-			sprite.texture = load("res://assets_and_referens/showflaces1.png")
-			#set_collision_layer_value(3, true)
-			#set_collision_layer_value(4, false)
+			#sprite.texture = load("res://assets_and_referens/showflaces1.png")
 			set_collision_mask_value(1, false)
 			speed = randf_range(30, 50)
+		STATE.TRANSFORMATION:
+			transform_tween();
 		STATE.BAD:
+			transform_tween()
 			sprite.modulate = Color.RED
-			#set_collision_layer_value(3, false)
-			#set_collision_layer_value(4, true)
 			set_collision_mask_value(1, true)
 			speed = 600.0
+
+
+func transform_tween():
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(sprite, "modulate", Color.BLACK, 0.2)
+	tween.tween_property(sprite, "modulate", Color.RED, 0.2)
+	await tween.finished
+	current_state = STATE.BAD
 
 
 func screen_exited():
@@ -75,5 +85,3 @@ func player_entered(body: CharacterBody2D):
 	if body == Global.Player:
 		body.health -= 1
 		queue_free()
-		#if body.health == 0:
-			#body.death()

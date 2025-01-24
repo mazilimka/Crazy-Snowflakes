@@ -1,3 +1,6 @@
+Camera2D
+Marker2D
+GPUParticles2D
 Button
 HBoxContainer
 Label
@@ -10,5 +13,3 @@ Node2D
 TextureRect
 TextEdit
 CollisionPolygon2D
-Timer
-VisibleOnScreenEnabler2D

@@ -1,12 +1,9 @@
 res://Scenes/main.tscn
-res://Scenes/player.tscn
-res://Scenes/player.gd
-res://Scenes/main.gd
-res://Scenes/wall.tscn
-res://Scenes/good_snowflake.tscn
 res://Scripts/good_snowflake.gd
-res://autoloads/Global.gd
-res://Scripts/player.gd
-res://Scripts/main.gd
+res://Scenes/player.tscn
+res://Scenes/good_snowflake.tscn
 res://Scenes/death_window.tscn
 res://Scripts/death_window.gd
+res://Scripts/player.gd
+res://Scenes/wall.tscn
+res://Scripts/main.gd

@@ -34,7 +34,7 @@ position = Vector2(721, -5)
 rotation = 1.5708
 scale = Vector2(1, 1.88)
 
-[node name="Wall4" parent="Walls" instance=ExtResource("3_mmdj0")]
+[node name="DownWall" parent="Walls" instance=ExtResource("3_mmdj0")]
 position = Vector2(721, 604)
 rotation = 1.5708
 scale = Vector2(1, 1.88)
@@ -67,3 +67,6 @@ offset_left = 246.0
 offset_top = 208.0
 offset_right = 554.0
 offset_bottom = 392.0
+
+[node name="ShakeCamera" type="Camera2D" parent="."]
+anchor_mode = 0
