@@ -8,10 +8,12 @@ extends CharacterBody2D
 @export var friction := 50.0
 @export_category("Jump")
 @export var gravity := 1800.0
-@export var jump_max_speed := -700.0
-@export var jump_acceleration := -50.0
-@export var jump_deceleration := -50.0
+@export var jump_velocity := -00.0
+@export var max_jump_speed := -300.0
 
+var max_jump_time := 0.5
+var hold_time := 0.0
+var is_jumping := false
 var was_on_floor := false
 var health := 3:
 	set(value):
@@ -43,9 +45,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = 0.0
 		was_on_floor = false
+		is_jumping = false
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y += jump_max_speed
+	if Input.is_action_pressed("jump") and hold_time < max_jump_time and not is_jumping:
+		hold_time += delta
+		velocity.y = lerp(jump_velocity, max_jump_speed, hold_time / max_jump_time)
+	if Input.is_action_just_released("jump"):
+		is_jumping = true
+		hold_time = 0.0
 	
 	move_and_slide()
 	

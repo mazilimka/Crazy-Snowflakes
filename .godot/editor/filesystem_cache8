@@ -1,6 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737718751
+::res://::1737747172
 icon.svg::CompressedTexture2D::2665141676214085729::1737692564::1737692571::1::::<><>::
+new_particle_process_material.tres::ParticleProcessMaterial::5954748263300398312::1737727362::0::1::::<><>::
 README.md::TextFile::-1::1737716643::0::1::::<><>::
 ::res://assets_and_referens/::1737712964
 38d3d562e3734189a75e899c979191cd.jpeg::CompressedTexture2D::5400103286580469020::1737693301::1737694213::1::::<><>::
@@ -26,14 +27,16 @@ Triangle 2.png::CompressedTexture2D::7143342840701390005::1737698711::1737698714
 Triangle.png::CompressedTexture2D::688664180088963406::1737698711::1737698714::1::::<><>::
 ::res://autoloads/::1737713835
 Global.gd::GDScript::-1::1737713835::0::1::::<>Node<>::
-::res://Scenes/::1737715967
-death_window.tscn::PackedScene::1898946237902072908::1737715718::0::1::::<><>::res://Scripts/death_window.gd
-good_snowflake.tscn::PackedScene::4648421953456990827::1737715718::0::1::::<><>::res://Scripts/good_snowflake.gd<>uid://dm7yn3pa6vduy::::res://assets_and_referens/showflaces1.png
-main.tscn::PackedScene::6542212858127942960::1737715967::0::1::::<><>::res://Scripts/main.gd<>uid://13uox2muyeih::::res://Scenes/player.tscn<>uid://dqxu6g58qey8x::::res://Scenes/wall.tscn<>uid://brklxd8r8fogs::::res://assets_and_referens/Jef Bourgeau New Year's Day 2024.jpg<>uid://2b4mqmpiovua::::res://Scenes/death_window.tscn
-player.tscn::PackedScene::1883953102992186087::1737715718::0::1::::<><>::res://Scripts/player.gd<>uid://b3cpdsqgojvau::::res://assets_and_referens/Simple Shapes/Heart.png
-wall.tscn::PackedScene::8331034300102747033::1737711239::0::1::::<><>::
-::res://Scripts/::1737715696
-death_window.gd::GDScript::-1::1737715347::0::1::::<>PanelContainer<>::
-good_snowflake.gd::GDScript::-1::1737715696::0::1::::<>Area2D<>::
-main.gd::GDScript::-1::1737715638::0::1::::<>Node2D<>::
-player.gd::GDScript::-1::1737715283::0::1::::<>CharacterBody2D<>::
+::res://components/::1737739334
+IncreasingSpeedComponent.gd::GDScript::-1::1737739334::0::1::::<>Node<>::
+::res://Scenes/::1737747159
+death_window.tscn::PackedScene::1898946237902072908::1737744720::0::1::::<><>::res://Scripts/death_window.gd
+good_snowflake.tscn::PackedScene::4648421953456990827::1737744720::0::1::::<><>::res://Scripts/good_snowflake.gd<>uid://dm7yn3pa6vduy::::res://assets_and_referens/showflaces1.png
+main.tscn::PackedScene::6542212858127942960::1737744720::0::1::::<><>::res://Scripts/main.gd<>uid://13uox2muyeih::::res://Scenes/player.tscn<>uid://dqxu6g58qey8x::::res://Scenes/wall.tscn<>uid://brklxd8r8fogs::::res://assets_and_referens/Jef Bourgeau New Year's Day 2024.jpg<>uid://2b4mqmpiovua::::res://Scenes/death_window.tscn
+player.tscn::PackedScene::1883953102992186087::1737747159::0::1::::<><>::res://Scripts/player.gd<>uid://b3cpdsqgojvau::::res://assets_and_referens/Simple Shapes/Heart.png<>uid://cq3r3l8qroets::::res://new_particle_process_material.tres
+wall.tscn::PackedScene::8331034300102747033::1737723460::0::1::::<><>::
+::res://Scripts/::1737746319
+death_window.gd::GDScript::-1::1737742872::0::1::::<>PanelContainer<>::
+good_snowflake.gd::GDScript::-1::1737745616::0::1::::<>Area2D<>::
+main.gd::GDScript::-1::1737741935::0::1::::<>Node2D<>::
+player.gd::GDScript::-1::1737746319::0::1::::<>CharacterBody2D<>::

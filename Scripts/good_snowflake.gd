@@ -14,7 +14,7 @@ var current_state: STATE = STATE.GOOD:
 var time_to_transformation := randf_range(2, 6)
 var is_can_transform: bool
 var timer := 0.0
-var direction = null
+var direction
 
 func _ready() -> void:
 	body_entered.connect(player_entered)
