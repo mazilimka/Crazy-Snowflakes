@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0hdj4f70oa05"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_v328r"]
+[ext_resource type="PackedScene" uid="uid://13uox2muyeih" path="res://Scenes/player.tscn" id="1_vcc6a"]
+[ext_resource type="PackedScene" uid="uid://dqxu6g58qey8x" path="res://Scenes/wall.tscn" id="3_mmdj0"]
+[ext_resource type="Texture2D" uid="uid://brklxd8r8fogs" path="res://assets_and_referens/Jef Bourgeau New Year's Day 2024.jpg" id="4_77dcq"]
+[ext_resource type="PackedScene" uid="uid://2b4mqmpiovua" path="res://Scenes/death_window.tscn" id="5_3nav2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fveky"]
+atlas = ExtResource("4_77dcq")
+region = Rect2(0, 0, 474, 300.336)
+
+[sub_resource type="LabelSettings" id="LabelSettings_00hvs"]
+font_size = 51
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_v328r")
+
+[node name="Player" parent="." instance=ExtResource("1_vcc6a")]
+position = Vector2(407, 583)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("3_mmdj0")]
+position = Vector2(-4, 64)
+scale = Vector2(1, 1.42)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("3_mmdj0")]
+position = Vector2(804, 64)
+scale = Vector2(1, 1.42)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("3_mmdj0")]
+position = Vector2(721, -5)
+rotation = 1.5708
+scale = Vector2(1, 1.88)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("3_mmdj0")]
+position = Vector2(721, 604)
+rotation = 1.5708
+scale = Vector2(1, 1.88)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+modulate = Color(1, 1, 1, 0.227451)
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 608.0
+texture = SubResource("AtlasTexture_fveky")
+metadata/_edit_lock_ = true
+
+[node name="Health" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 70.0
+text = "3/3"
+label_settings = SubResource("LabelSettings_00hvs")
+
+[node name="DeathWindow" parent="UI" instance=ExtResource("5_3nav2")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = 246.0
+offset_top = 208.0
+offset_right = 554.0
+offset_bottom = 392.0

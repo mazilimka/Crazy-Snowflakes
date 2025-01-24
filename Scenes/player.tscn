@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://13uox2muyeih"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_at2ng"]
+[ext_resource type="Texture2D" uid="uid://b3cpdsqgojvau" path="res://assets_and_referens/Simple Shapes/Heart.png" id="1_mwvct"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qls1o"]
+radius = 9.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_at2ng")
+max_speed = 300.0
+friction = 2.0
+
+[node name="Heart" type="Sprite2D" parent="."]
+scale = Vector2(0.0778034, 0.0778034)
+texture = ExtResource("1_mwvct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_qls1o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 17, 18, 0, 20, -4, 20, -7, 19, -11, 16, -15, 10, -17, 5, -16, 1, -13, 0, -12, -4, -15, -10, -17, -15, -16, -18, -13, -19, -11, -20, -7, -19, -3, -17, 1, -13, 5)
