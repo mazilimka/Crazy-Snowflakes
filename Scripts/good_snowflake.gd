@@ -9,7 +9,7 @@ var is_slower := false
 var speeds := {
 	"good": randf_range(30, 50),
 	"bad": 600.0,
-	"slow": 10.0
+	"slow": 20.0
 }
 var previous_speed := 0.0
 var speed := 0.0
@@ -82,11 +82,11 @@ func update_snowfloke(state: STATE):
 				current_state = STATE.BAD
 		STATE.BAD:
 			sprite.modulate = Color.RED
-			#set_collision_mask_value(1, true)
+			set_collision_mask_value(1, true)
 			speed = speeds["bad"]
 		STATE.SLOW:
 			speed = speeds["slow"]
-			#set_collision_mask_value(1, true)
+			set_collision_mask_value(1, true)
 
 
 func transform_tween():
@@ -104,7 +104,9 @@ func screen_exited():
 
 func player_entered(body: CharacterBody2D):
 	if body == Global.Player:
-		body.health -= 1
+		if not body.is_save_mode:
+			body.health -= 1
+			body.taked_damage()
 		queue_free()
 
 

@@ -11,6 +11,9 @@ extends CharacterBody2D
 @export var jump_velocity := -00.0
 @export var max_jump_speed := -300.0
 
+var save_tween: Tween
+var save_mode_timer := 0.0
+var is_save_mode := false
 var max_jump_time := 0.5
 var hold_time := 0.0
 var is_jumping := false
@@ -22,6 +25,8 @@ var health := 3:
 			if health == 0:
 				death()
 				return
+			#is_save_mode = true
+			
 			Global.Main.update_health(health)
 			camera_shake()
 
@@ -61,12 +66,25 @@ func _physics_process(delta: float) -> void:
 		if collision.get_collider().name == "DownWall":
 			launch_particles()
 	was_on_floor = is_on_floor()
+	
+	#if is_save_mode:
+		#save_mode_timer += delta
+		#tween_in_save_mode()
 
 
 func camera_shake(intensity: float = 20.0, time: float = 0.2) -> Tween:
 	var camera_tween := get_tree().create_tween()
 	camera_tween.tween_method(Global.Main.start_camera_shake, intensity, 1.0, 0.2)
 	return camera_tween
+
+
+func taked_damage():
+	is_save_mode = true
+	save_tween = get_tree().create_tween().set_loops(4)
+	save_tween.tween_property(%Heart, "visible", false, 0.1)
+	save_tween.tween_property(%Heart, "visible", true, 0.1)
+	await save_tween.finished
+	is_save_mode = false
 
 
 func death():

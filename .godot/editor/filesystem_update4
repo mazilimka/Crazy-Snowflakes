@@ -1,11 +1,9 @@
-res://Scripts/ui.gd
-res://Scripts/main.gd
-res://Scripts/player.gd
-res://Scripts/death_window.gd
-res://Scripts/good_snowflake.gd
-res://autoloads/Global.gd
-res://components/SlowSnowflakesComponent.gd
-res://Scenes/good_snowflake.tscn
 res://Scenes/main.tscn
+res://Scripts/main.gd
 res://Scenes/player.tscn
+res://Scenes/good_snowflake.tscn
 res://Scenes/death_window.tscn
+res://Scripts/good_snowflake.gd
+res://Scripts/ui.gd
+res://components/SlowSnowflakesComponent.gd
+res://Scripts/player.gd

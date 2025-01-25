@@ -4,6 +4,7 @@ extends Control
 @onready var bar_before_slowing := %BarBeforeSlowing
 @onready var press_shift: Label = %PressShift
 
+var tween_text_counter := 0
 var press_shift_tween: Tween
 var can_slowing := true
 var progress_before_slowing := 0: 
@@ -17,7 +18,7 @@ var progress_before_slowing := 0:
 func _ready() -> void:
 	timer_to_shift.timeout.connect(timer_to_shift_timeout)
 	Global.UI = self
-	progress_before_slowing = 3
+	progress_before_slowing = randi_range(3, 10)
 
 
 func _process(delta: float) -> void:
@@ -42,11 +43,14 @@ func launch_slow_snowflakes_comp():
 		node.launch_slow_comp()
 
 func text_tween():
+	if tween_text_counter >= 2:
+		return
 	press_shift_tween = get_tree().create_tween().set_loops(2)
-	press_shift_tween.tween_property(press_shift, 'modulate', Color.RED, 0.3)
-	press_shift_tween.tween_property(press_shift, 'modulate', Color.WHITE, 0.3)
+	press_shift_tween.tween_property(press_shift, 'modulate', Color.RED, 0.2)
+	press_shift_tween.tween_property(press_shift, 'modulate', Color.WHITE, 0.2)
 	await press_shift_tween.finished
 	press_shift_tween = get_tree().create_tween()
-	press_shift_tween.tween_property(press_shift, 'modulate', Color("ffffff00"), 0.2)
+	press_shift_tween.tween_property(press_shift, 'modulate', Color("ffffff00"), 0.1)
 	await press_shift_tween.finished
 	press_shift.hide()
+	tween_text_counter += 1

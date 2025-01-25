@@ -54,6 +54,7 @@ func update_health(health: int):
 
 func restart_game():
 	get_tree().paused = true
+	%PressShift.hide()
 	%DeathWindow.show()
 
 

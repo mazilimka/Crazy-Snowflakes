@@ -9,14 +9,15 @@ var snowfloake: Area2D
 func _ready() -> void:
 	snowfloake = get_parent()
 	set_slow_state()
+	Global.UI.bar_before_slowing.max_value = timer
 
 
 func _process(delta: float) -> void:
 	sec += delta
+	Global.UI.bar_before_slowing.value = sec
 	if sec >= timer:
-		#slow_snowflakes.emit(false)
 		set_prev_state()
-		Global.UI.progress_before_slowing = 3
+		Global.UI.progress_before_slowing = randi_range(3, 10)
 		queue_free()
 
 
