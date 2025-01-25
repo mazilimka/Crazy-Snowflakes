@@ -11,6 +11,7 @@ extends CharacterBody2D
 @export var jump_velocity := -00.0
 @export var max_jump_speed := -300.0
 
+var is_first_touch := true
 var save_tween: Tween
 var save_mode_timer := 0.0
 var is_save_mode := false
@@ -64,13 +65,10 @@ func _physics_process(delta: float) -> void:
 	var collision := move_and_collide(Vector2.DOWN, false)
 	if collision and was_on_floor:
 		if collision.get_collider().name == "DownWall":
-			launch_particles()
+			if not is_first_touch:
+				launch_particles()
+			is_first_touch = false
 	was_on_floor = is_on_floor()
-	
-	#if is_save_mode:
-		#save_mode_timer += delta
-		#tween_in_save_mode()
-
 
 func camera_shake(intensity: float = 20.0, time: float = 0.2) -> Tween:
 	var camera_tween := get_tree().create_tween()

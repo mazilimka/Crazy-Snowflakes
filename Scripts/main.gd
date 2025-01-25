@@ -17,9 +17,8 @@ var min_time_to_snowf := 0.5
 var camera_shake_noice: FastNoiseLite
 
 func _ready() -> void:
-	camera_shake_noice = FastNoiseLite.new()
 	Global.Main = self
-	printerr("Turn off Always of Top!!!!")
+	camera_shake_noice = FastNoiseLite.new()
 
 
 func _process(delta: float) -> void:
@@ -45,7 +44,7 @@ func _process(delta: float) -> void:
 func launch_snowflake():
 	var snowflake_instance: Area2D = snowflake_scene.instantiate()
 	%Snowflokes.add_child(snowflake_instance, true)
-	snowflake_instance.global_position.x = randf_range(50, 790)
+	snowflake_instance.global_position.x = randf_range(50, 760)
 
 
 func update_health(health: int):

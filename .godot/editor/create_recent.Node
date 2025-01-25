@@ -1,3 +1,4 @@
+CanvasLayer
 Node2D
 SlowSnowflakesComponent
 Label
@@ -12,4 +13,3 @@ MarginContainer
 VBoxContainer
 PanelContainer
 Panel
-Control

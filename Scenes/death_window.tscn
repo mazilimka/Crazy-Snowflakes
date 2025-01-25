@@ -1,22 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://2b4mqmpiovua"]
+[gd_scene load_steps=6 format=3 uid="uid://2b4mqmpiovua"]
 
 [ext_resource type="Script" path="res://Scripts/death_window.gd" id="1_h3p77"]
+[ext_resource type="FontFile" uid="uid://bepk58c3wap3b" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Monospaced.otf" id="2_egtxr"]
+[ext_resource type="FontFile" uid="uid://7taalwuxe55j" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoPups/NicoPups-Regular.woff2" id="3_raug4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xl61"]
-bg_color = Color(0.862421, 0.286754, 1, 1)
+bg_color = Color(0.320021, 0.0126479, 0.190846, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.238842, 0.150567, 1, 1)
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4vmr"]
+font = ExtResource("2_egtxr")
 font_size = 55
-font_color = Color(0.718028, 0.718028, 0, 1)
+font_color = Color(0.717647, 0, 0, 1)
 
 [node name="DeathWindow" type="PanelContainer"]
 process_mode = 3
@@ -63,7 +66,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 10
 focus_mode = 0
-theme_override_font_sizes/font_size = 31
+theme_override_fonts/font = ExtResource("3_raug4")
+theme_override_font_sizes/font_size = 37
 text = "Restart"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
@@ -72,6 +76,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 10
 focus_mode = 0
-theme_override_font_sizes/font_size = 31
+theme_override_fonts/font = ExtResource("3_raug4")
+theme_override_font_sizes/font_size = 37
 text = "Quit
 "

@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	Global.UI.bar_before_slowing.value = sec
 	if sec >= timer:
 		set_prev_state()
-		Global.UI.progress_before_slowing = randi_range(3, 10)
+		Global.UI.progress_before_slowing = randi_range(3, 8)
 		queue_free()
 
 

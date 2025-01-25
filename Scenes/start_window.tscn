@@ -1,0 +1,123 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbi03tnxasr6m"]
+
+[ext_resource type="Script" path="res://Scripts/start_window.gd" id="1_a0gk7"]
+[ext_resource type="FontFile" uid="uid://6roonmuax37p" path="res://assets_and_referens/fonts/TrueType (.ttf)/Kaph-Regular.ttf" id="1_axp3i"]
+[ext_resource type="FontFile" uid="uid://cdh1puptfo87y" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.ttf" id="2_2rp5w"]
+[ext_resource type="Texture2D" uid="uid://brklxd8r8fogs" path="res://assets_and_referens/Jef Bourgeau New Year's Day 2024.jpg" id="2_at6uu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dfdm"]
+bg_color = Color(0.479952, 0.557318, 0.993644, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.238842, 0.150567, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2cy3"]
+atlas = ExtResource("2_at6uu")
+region = Rect2(0, 0, 474, 300.336)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujkp1"]
+font = ExtResource("1_axp3i")
+font_size = 34
+font_color = Color(0.718028, 0.718028, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfc2j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.368627, 1, 0.368627, 1)
+
+[node name="StartWindow" type="PanelContainer"]
+process_mode = 3
+process_priority = 12
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -92.0
+offset_right = 238.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dfdm")
+script = ExtResource("1_a0gk7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+modulate = Color(1, 1, 1, 0.227451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -211.0
+offset_right = 165.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_n2cy3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+process_mode = 2
+layout_mode = 2
+offset_top = 40.0
+offset_right = 452.0
+offset_bottom = 79.0
+pivot_offset = Vector2(230, 19)
+size_flags_vertical = 10
+text = "Crazy Snowflakes"
+label_settings = SubResource("LabelSettings_ujkp1")
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46.575)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+focus_mode = 0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_2rp5w")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxFlat_rfc2j")
+text = "Start!"
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 46.575)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+focus_mode = 0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_2rp5w")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxFlat_rfc2j")
+text = "Resume
+"

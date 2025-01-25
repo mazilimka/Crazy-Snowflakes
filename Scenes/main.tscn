@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0hdj4f70oa05"]
+[gd_scene load_steps=15 format=3 uid="uid://c0hdj4f70oa05"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_v328r"]
 [ext_resource type="PackedScene" uid="uid://13uox2muyeih" path="res://Scenes/player.tscn" id="1_vcc6a"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="4_1iki3"]
 [ext_resource type="Texture2D" uid="uid://brklxd8r8fogs" path="res://assets_and_referens/Jef Bourgeau New Year's Day 2024.jpg" id="4_77dcq"]
 [ext_resource type="PackedScene" uid="uid://2b4mqmpiovua" path="res://Scenes/death_window.tscn" id="5_3nav2"]
+[ext_resource type="PackedScene" uid="uid://b7fpb26vjyjy" path="res://Scenes/victory_window.tscn" id="7_pyy5y"]
+[ext_resource type="PackedScene" uid="uid://cbi03tnxasr6m" path="res://Scenes/start_window.tscn" id="8_fak8o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fveky"]
 atlas = ExtResource("4_77dcq")
@@ -28,6 +30,29 @@ anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4an3a"]
 bg_color = Color(0.327928, 0, 0.0831342, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vw4rw"]
+bg_color = Color(0.688615, 0.411032, 0.0376995, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1h4c"]
+bg_color = Color(0.129801, 0.474017, 2.59906e-06, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -66,21 +91,11 @@ scale = Vector2(1, 1.88)
 [node name="ShakeCamera" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
+[node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("4_1iki3")
 
 [node name="TextureRect" type="TextureRect" parent="UI"]
 modulate = Color(1, 1, 1, 0.227451)
-layout_mode = 0
 offset_right = 800.0
 offset_bottom = 600.0
 texture = SubResource("AtlasTexture_fveky")
@@ -88,25 +103,14 @@ metadata/_edit_lock_ = true
 
 [node name="Health" type="Label" parent="UI"]
 unique_name_in_owner = true
-layout_mode = 0
 offset_right = 78.0
 offset_bottom = 70.0
 text = "3/3"
 label_settings = SubResource("LabelSettings_00hvs")
 metadata/_edit_lock_ = true
 
-[node name="DeathWindow" parent="UI" instance=ExtResource("5_3nav2")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-offset_left = 246.0
-offset_top = 208.0
-offset_right = 554.0
-offset_bottom = 392.0
-
 [node name="BarBeforeSlowing" type="ProgressBar" parent="UI"]
 unique_name_in_owner = true
-layout_mode = 0
 offset_top = 446.785
 offset_right = 216.0
 offset_bottom = 473.785
@@ -126,7 +130,7 @@ one_shot = true
 [node name="PressShift" type="Label" parent="UI"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
+modulate = Color(1, 1, 1, 0.552941)
 offset_left = 265.0
 offset_top = 227.0
 offset_right = 552.0
@@ -134,6 +138,34 @@ offset_bottom = 297.0
 text = "Press Shift!"
 label_settings = SubResource("LabelSettings_00hvs")
 metadata/_edit_lock_ = true
+
+[node name="ShiftCounterBar" type="ProgressBar" parent="UI"]
+unique_name_in_owner = true
+offset_left = 766.0
+offset_top = 456.0
+offset_right = 982.0
+offset_bottom = 483.0
+rotation = -1.5708
+scale = Vector2(1.265, 1.265)
+theme_override_styles/background = SubResource("StyleBoxFlat_vw4rw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u1h4c")
+max_value = 7.0
+step = 1.0
+show_percentage = false
+
+[node name="DeathWindow" parent="UI" instance=ExtResource("5_3nav2")]
+unique_name_in_owner = true
+visible = false
+offset_left = -198.5
+offset_right = 198.5
+
+[node name="VictoryWindow" parent="UI" instance=ExtResource("7_pyy5y")]
+unique_name_in_owner = true
+visible = false
+
+[node name="StartWindow" parent="UI" instance=ExtResource("8_fak8o")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Snowflokes" type="Node2D" parent="."]
 unique_name_in_owner = true

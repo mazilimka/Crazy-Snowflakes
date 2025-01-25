@@ -2,7 +2,7 @@ extends Node
 
 var Player: CharacterBody2D = null
 var Main: Node2D = null
-var UI: Control = null
+var UI: CanvasLayer = null
 
 func get_component(_node: Node, comp_name: String):
 	return _node.get_node_or_null(comp_name)
