@@ -33,7 +33,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var direction = Input.get_axis("move_left", "move_right")
+	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = lerp(velocity.x, (direction * max_speed), (acceleration * delta))
 	else:
@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	var collision = move_and_collide(Vector2.DOWN, false)
+	var collision := move_and_collide(Vector2.DOWN, false)
 	if collision and was_on_floor:
 		if collision.get_collider().name == "DownWall":
 			launch_particles()
@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 
 
 func camera_shake(intensity: float = 20.0, time: float = 0.2) -> Tween:
-	var camera_tween = get_tree().create_tween()
+	var camera_tween := get_tree().create_tween()
 	camera_tween.tween_method(Global.Main.start_camera_shake, intensity, 1.0, 0.2)
 	return camera_tween
 

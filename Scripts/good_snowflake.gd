@@ -1,10 +1,19 @@
 extends Area2D
 
-enum STATE { GOOD, TRANSFORMATION, BAD }
+enum STATE { GOOD, TRANSFORMATION, BAD, SLOW }
 
 @onready var sprite: Sprite2D = $Sprite2D
 
-var speed := randf_range(300, 500)
+var was_slow := false
+var is_slower := false
+var speeds := {
+	"good": randf_range(30, 50),
+	"bad": 600.0,
+	"slow": 10.0
+}
+var previous_speed := 0.0
+var speed := 0.0
+var previous_state: STATE
 var current_state: STATE = STATE.GOOD:
 	set(value):
 		if current_state != value: 
@@ -26,7 +35,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	timer += delta
 	if timer >= time_to_transformation and is_can_transform:
-		current_state = STATE.TRANSFORMATION
+		if is_slower:
+			previous_state = STATE.TRANSFORMATION
+			transform_tween()
+		else:
+			current_state = STATE.TRANSFORMATION
 		timer = 0
 	
 	if not is_can_transform:
@@ -38,18 +51,20 @@ func _physics_process(delta: float) -> void:
 			good_snowflokes(delta)
 		STATE.BAD:
 			bad_snowflokes(delta)
+		STATE.SLOW:
+			global_position.y += speed * delta
 		STATE.TRANSFORMATION:
 			good_snowflokes(delta)
 
 
 func good_snowflokes(delta: float):
-	position.y += speed * delta
+	global_position.y += speed * delta
 
 
 func bad_snowflokes(delta: float):
 	if direction == null:
 		direction = global_position.direction_to(Global.Player.global_position)
-	position += direction * speed * delta
+	global_position += direction * speed * delta
 	speed += 0.05
 
 
@@ -59,14 +74,19 @@ func update_snowfloke(state: STATE):
 			sprite.modulate = Color.LIGHT_SKY_BLUE
 			#sprite.texture = load("res://assets_and_referens/showflaces1.png")
 			set_collision_mask_value(1, false)
-			speed = randf_range(30, 50)
+			speed = speeds["good"]
 		STATE.TRANSFORMATION:
-			transform_tween();
+			if not was_slow:
+				transform_tween()
+			else:
+				current_state = STATE.BAD
 		STATE.BAD:
-			transform_tween()
 			sprite.modulate = Color.RED
-			set_collision_mask_value(1, true)
-			speed = 600.0
+			#set_collision_mask_value(1, true)
+			speed = speeds["bad"]
+		STATE.SLOW:
+			speed = speeds["slow"]
+			#set_collision_mask_value(1, true)
 
 
 func transform_tween():
@@ -74,7 +94,8 @@ func transform_tween():
 	tween.tween_property(sprite, "modulate", Color.BLACK, 0.2)
 	tween.tween_property(sprite, "modulate", Color.RED, 0.2)
 	await tween.finished
-	current_state = STATE.BAD
+	if not is_slower:
+		current_state = STATE.BAD
 
 
 func screen_exited():
@@ -85,3 +106,10 @@ func player_entered(body: CharacterBody2D):
 	if body == Global.Player:
 		body.health -= 1
 		queue_free()
+
+
+func launch_slow_comp():
+	if is_slower:
+		return
+	var slow_snowflakes_comp := SlowSnowflakesComponent.new()
+	add_child(slow_snowflakes_comp)

@@ -3,6 +3,7 @@ extends Node2D
 @onready var snowflake_scene := preload("res://Scenes/good_snowflake.tscn")
 @onready var health_label: Label = %Health
 @onready var shake_camera: Camera2D = $ShakeCamera
+@onready var timer_to_shift := %TimerToShift
 
 var timer := 0.0
 var global_timer := 0.0
@@ -24,8 +25,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	timer += delta
 	if timer >= time_to_launch_snowflakes:
-		#for i in randi_range(1, 4):
-			#launch_snowflake()
+		for i in randi_range(1, 4):
+			launch_snowflake()
 		timer = 0
 		time_to_launch_snowflakes = randf_range(time_to_snowf_incr_from, time_to_snowf_incr_to)
 	
@@ -43,8 +44,8 @@ func _process(delta: float) -> void:
 
 func launch_snowflake():
 	var snowflake_instance: Area2D = snowflake_scene.instantiate()
-	add_child(snowflake_instance, true)
-	snowflake_instance.global_position.x = randf_range(15, 790)
+	%Snowflokes.add_child(snowflake_instance, true)
+	snowflake_instance.global_position.x = randf_range(50, 790)
 
 
 func update_health(health: int):
@@ -57,5 +58,5 @@ func restart_game():
 
 
 func start_camera_shake(intensity: float):
-	var camera_offset = camera_shake_noice.get_noise_1d(Time.get_ticks_usec())
+	var camera_offset := camera_shake_noice.get_noise_1d(Time.get_ticks_usec())
 	shake_camera.offset = Vector2(camera_offset, camera_offset) * intensity

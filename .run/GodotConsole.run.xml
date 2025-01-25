@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GodotConsole" type="GodotRunConfiguration" factoryName="GodotRunConfiguration" editBeforeRun="true" focusToolWindowBeforeRun="true" singleton="false">
+    <option name="godotExe" value="C:\Users\Igor\AppData\Roaming\Godot\export_templates\4.3.stable\windows_debug_x86_32_console.exe" />
+    <option name="tscn" value="C:\Godot\Crazy-Snowflakes\Scenes\main.tscn" />
+    <method v="2" />
+  </configuration>
+</component>
