@@ -2,10 +2,9 @@ extends Node
 class_name SlowSnowflakesComponent
 
 var sec := 0.0
-var timer := 3.0
+var timer := 2.0
 var snowfloake: Area2D
 
-#signal slow_snowflakes(toggled_on: bool)
 func _ready() -> void:
 	snowfloake = get_parent()
 	set_slow_state()

@@ -5,6 +5,7 @@ extends Node2D
 @onready var shake_camera: Camera2D = $ShakeCamera
 @onready var timer_to_shift := %TimerToShift
 
+var max_number_of_shift := randi_range(6, 10)
 var timer := 0.0
 var global_timer := 0.0
 var timer_for_rest := 0.0
@@ -17,8 +18,11 @@ var min_time_to_snowf := 0.5
 var camera_shake_noice: FastNoiseLite
 
 func _ready() -> void:
+	if (ProjectSettings.get_setting("display/window/size/always_on_top")) == true:
+		printerr("Turn off Always on Top!!!")
 	Global.Main = self
 	camera_shake_noice = FastNoiseLite.new()
+	%ShiftCounterBar.max_value = max_number_of_shift
 
 
 func _process(delta: float) -> void:

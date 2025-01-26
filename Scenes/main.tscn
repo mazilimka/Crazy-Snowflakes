@@ -121,6 +121,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_4an3a")
 step = 0.001
 value = 100.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="TimerToShift" type="Timer" parent="UI"]
 unique_name_in_owner = true
@@ -149,9 +150,10 @@ rotation = -1.5708
 scale = Vector2(1.265, 1.265)
 theme_override_styles/background = SubResource("StyleBoxFlat_vw4rw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_u1h4c")
-max_value = 7.0
+max_value = 10.0
 step = 1.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="DeathWindow" parent="UI" instance=ExtResource("5_3nav2")]
 unique_name_in_owner = true

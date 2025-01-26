@@ -13,7 +13,10 @@ config_version=5
 config/name="Crazy Snowflaces"
 run/main_scene="res://Scenes/start_window.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.137839, 0.148433, 0.366814, 1)
+boot_splash/image="res://assets_and_referens/showflaces1.png"
+boot_splash/use_filter=false
+config/icon="res://assets_and_referens/showflaces1.png"
 
 [autoload]
 

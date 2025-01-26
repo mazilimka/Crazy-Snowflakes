@@ -7,18 +7,18 @@ extends CharacterBody2D
 @export var acceleration := 50.0
 @export var friction := 50.0
 @export_category("Jump")
-@export var gravity := 1800.0
-@export var jump_velocity := -00.0
-@export var max_jump_speed := -300.0
+@export var gravity := 2000.0
+@export var jump_velocity := -750.0
+@export var max_jump_speed := -200.0
 
 var is_first_touch := true
+var was_on_floor := false
 var save_tween: Tween
 var save_mode_timer := 0.0
 var is_save_mode := false
 var max_jump_time := 0.5
 var hold_time := 0.0
 var is_jumping := false
-var was_on_floor := false
 var health := 3:
 	set(value):
 		if health != value:
@@ -26,8 +26,6 @@ var health := 3:
 			if health == 0:
 				death()
 				return
-			#is_save_mode = true
-			
 			Global.Main.update_health(health)
 			camera_shake()
 
@@ -70,8 +68,9 @@ func _physics_process(delta: float) -> void:
 			is_first_touch = false
 	was_on_floor = is_on_floor()
 
+
 func camera_shake(intensity: float = 20.0, time: float = 0.2) -> Tween:
-	var camera_tween := get_tree().create_tween()
+	var camera_tween := create_tween()
 	camera_tween.tween_method(Global.Main.start_camera_shake, intensity, 1.0, 0.2)
 	return camera_tween
 

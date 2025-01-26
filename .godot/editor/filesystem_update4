@@ -1,13 +1,8 @@
-res://Scenes/main.tscn
 res://Scenes/start_window.tscn
+res://Scenes/main.tscn
 res://Scenes/player.tscn
 res://Scenes/good_snowflake.tscn
 res://Scenes/death_window.tscn
 res://Scenes/victory_window.tscn
-res://Scripts/main.gd
 res://Scripts/player.gd
-res://Scripts/ui.gd
-res://Scenes/shift_counter_bar.tscn
-res://autoloads/Global.gd
-res://components/SlowSnowflakesComponent.gd
-res://Scripts/start_window.gd
+res://Scripts/main.gd
