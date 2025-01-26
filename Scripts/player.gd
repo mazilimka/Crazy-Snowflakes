@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var particle_material = preload("res://new_particle_process_material.tres")
+@onready var broken_window_sound: AudioStreamPlayer = $BrokenWondowSound
+@onready var music: AudioStreamPlayer = $Music
 
 @export_category("Movement")
 @export var max_speed := 220.0
@@ -11,6 +13,15 @@ extends CharacterBody2D
 @export var jump_velocity := -750.0
 @export var max_jump_speed := -200.0
 
+var array_sounds := [
+	preload("res://assets_and_referens/sounds/00165.mp3"), 
+	preload("res://assets_and_referens/sounds/glass-break-wine-glass_fkyjgn4d.mp3"),
+	preload("res://assets_and_referens/sounds/glass-break-wine-glass_mk-6f24d.mp3"),
+	preload("res://assets_and_referens/sounds/glass-shatter_mjxklono.mp3")
+]
+
+var input_event_screen_touch: InputEventScreenTouch
+var center_of_screen := 400.0
 var is_first_touch := true
 var was_on_floor := false
 var save_tween: Tween
@@ -26,17 +37,22 @@ var health := 3:
 			if health == 0:
 				death()
 				return
+			Global.UI.health_tween()
 			Global.Main.update_health(health)
 			camera_shake()
 
 func _ready() -> void:
-	$FallParticles.emitting = false
-	$FallParticles2.emitting = false
-	$FallParticles3.emitting = false
 	Global.Player = self
+	#mobile_controlls_tween()
+	if Global.is_mobile:
+		mobile_controlls_tween()
+	else:
+		for node in %Controlls.get_children(): node.queue_free()
+	$FallParticles.emitting = false
 
 
 func _physics_process(delta: float) -> void:
+	print(get_global_mouse_position().x)
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = lerp(velocity.x, (direction * max_speed), (acceleration * delta))
@@ -69,6 +85,41 @@ func _physics_process(delta: float) -> void:
 	was_on_floor = is_on_floor()
 
 
+func mobile_controlls_tween():
+	get_tree().paused = true
+	
+	var tween1 := get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS).set_loops(3)
+	tween1.tween_property(%LeftRect, "modulate", Color("a1ad0000"), 0.5)
+	tween1.tween_property(%LeftRect, "modulate", Color("a1ad00"), 0.5)
+	
+	var tween2 := get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS).set_loops(3)
+	tween2.tween_property(%RightRect, "modulate", Color("e4a1d200"), 0.5)
+	tween2.tween_property(%RightRect, "modulate", Color("e4a1d2"), 0.5)
+	
+	var tween3 := get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS).set_loops(3)
+	tween3.tween_property(%JumpRect, "modulate", Color("ff740200"), 0.5)
+	tween3.tween_property(%JumpRect, "modulate", Color("ff7402"), 0.5)
+	
+	await tween1.finished
+	await tween2.finished
+	await tween3.finished
+	
+	tween1 = get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween1.tween_property(%LeftRect, "modulate", Color("a1ad0000"), 0.1)
+	
+	tween2 = get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween2.tween_property(%RightRect, "modulate", Color("e4a1d200"), 0.1)
+	
+	tween3 = get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween3.tween_property(%JumpRect, "modulate", Color("ff740200"), 0.1)
+	
+	await tween1.finished
+	await tween2.finished
+	await tween3.finished
+	
+	get_tree().paused = false
+
+
 func camera_shake(intensity: float = 20.0, time: float = 0.2) -> Tween:
 	var camera_tween := create_tween()
 	camera_tween.tween_method(Global.Main.start_camera_shake, intensity, 1.0, 0.2)
@@ -76,6 +127,9 @@ func camera_shake(intensity: float = 20.0, time: float = 0.2) -> Tween:
 
 
 func taked_damage():
+	broken_window_sound.stream = array_sounds.pick_random()
+	broken_window_sound.play()
+	
 	is_save_mode = true
 	save_tween = get_tree().create_tween().set_loops(4)
 	save_tween.tween_property(%Heart, "visible", false, 0.1)

@@ -1,17 +1,110 @@
-[gd_scene load_steps=5 format=3 uid="uid://13uox2muyeih"]
+[gd_scene load_steps=10 format=3 uid="uid://13uox2muyeih"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_at2ng"]
 [ext_resource type="Texture2D" uid="uid://b3cpdsqgojvau" path="res://assets_and_referens/Simple Shapes/Heart.png" id="1_mwvct"]
 [ext_resource type="Material" uid="uid://cq3r3l8qroets" path="res://new_particle_process_material.tres" id="3_3du0x"]
+[ext_resource type="AudioStream" uid="uid://cl56o8kj6dus3" path="res://assets_and_referens/music/Sketchbook 2024-09-12.ogg" id="4_gi34c"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8hbhg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ul0t3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yq357"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j7qce"]
+font_size = 50
+font_color = Color(0, 0.454902, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qls1o"]
 radius = 9.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 4
 collision_mask = 2
 script = ExtResource("1_at2ng")
 max_speed = 300.0
 friction = 2.0
+
+[node name="Controlls" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="LeftButton" type="TouchScreenButton" parent="Controlls"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-868, 0)
+scale = Vector2(1269, 413)
+texture_normal = SubResource("PlaceholderTexture2D_8hbhg")
+passby_press = true
+action = "move_left"
+
+[node name="RightButton" type="TouchScreenButton" parent="Controlls"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(400, 0)
+scale = Vector2(1528, 413)
+texture_normal = SubResource("PlaceholderTexture2D_ul0t3")
+passby_press = true
+action = "move_right"
+
+[node name="JumpButton" type="TouchScreenButton" parent="Controlls"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-480, 417)
+scale = Vector2(1867, 183)
+texture_normal = SubResource("PlaceholderTexture2D_yq357")
+action = "jump"
+
+[node name="LeftRect" type="ColorRect" parent="Controlls"]
+unique_name_in_owner = true
+offset_left = -869.0
+offset_right = 401.0
+offset_bottom = 411.0
+color = Color(0.631373, 0.678431, 0, 1)
+
+[node name="LeftLabel" type="Label" parent="Controlls/LeftRect"]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 0
+offset_left = 951.0
+offset_top = 175.0
+offset_right = 1190.0
+offset_bottom = 244.0
+text = "Move Left"
+label_settings = SubResource("LabelSettings_j7qce")
+
+[node name="RightRect" type="ColorRect" parent="Controlls"]
+unique_name_in_owner = true
+offset_left = 401.0
+offset_right = 1671.0
+offset_bottom = 411.0
+color = Color(0.89462, 0.631378, 0.82509, 1)
+
+[node name="RightLabel" type="Label" parent="Controlls/RightRect"]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 0
+offset_left = 86.0
+offset_top = 172.0
+offset_right = 356.0
+offset_bottom = 241.0
+text = "Move Right"
+label_settings = SubResource("LabelSettings_j7qce")
+
+[node name="JumpRect" type="ColorRect" parent="Controlls"]
+unique_name_in_owner = true
+offset_left = -477.0
+offset_top = 417.0
+offset_right = 1387.0
+offset_bottom = 600.0
+color = Color(1, 0.454902, 0.00784314, 1)
+
+[node name="JumpLabel" type="Label" parent="Controlls/JumpRect"]
+unique_name_in_owner = true
+z_index = 3
+layout_mode = 0
+offset_left = 657.0
+offset_top = 54.0
+offset_right = 1170.0
+offset_bottom = 122.0
+text = "Hold or press to Jump"
+label_settings = SubResource("LabelSettings_j7qce")
 
 [node name="Heart" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -36,27 +129,12 @@ one_shot = true
 explosiveness = 1.0
 randomness = 0.22
 
-[node name="FallParticles2" type="GPUParticles2D" parent="."]
-position = Vector2(0, 16)
-rotation = 3.14159
-emitting = false
-amount = 50
-process_material = ExtResource("3_3du0x")
-one_shot = true
-explosiveness = 1.0
-randomness = 0.22
-fixed_fps = 60
-
-[node name="FallParticles3" type="GPUParticles2D" parent="."]
-position = Vector2(0, 16)
-rotation = 3.14159
-emitting = false
-amount = 50
-process_material = ExtResource("3_3du0x")
-one_shot = true
-explosiveness = 1.0
-randomness = 0.22
-fixed_fps = 60
-
 [node name="MarkerForParticle" type="Marker2D" parent="."]
 position = Vector2(0, 16)
+
+[node name="BrokenWondowSound" type="AudioStreamPlayer" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gi34c")
+volume_db = -14.24
+autoplay = true

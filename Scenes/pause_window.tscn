@@ -1,0 +1,212 @@
+[gd_scene load_steps=13 format=3 uid="uid://bp0vr7x2diakh"]
+
+[ext_resource type="FontFile" uid="uid://6roonmuax37p" path="res://assets_and_referens/fonts/TrueType (.ttf)/Kaph-Regular.ttf" id="1_3fjq5"]
+[ext_resource type="Script" path="res://Scripts/pause_window.gd" id="1_f4yxd"]
+[ext_resource type="FontFile" uid="uid://cdh1puptfo87y" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.ttf" id="2_27o33"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dfdm"]
+bg_color = Color(0.479952, 0.557318, 0.993644, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.238842, 0.150567, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_a84fi"]
+font = ExtResource("2_27o33")
+font_size = 24
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujkp1"]
+font = ExtResource("1_3fjq5")
+font_size = 34
+font_color = Color(0.718028, 0.718028, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd112"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1.20327e-07, 0.174942, 0.171179, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing_size = 6.745
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2fhj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.619618, 0.470213, 0.186207, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfc2j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.368627, 1, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woq1v"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1.20327e-07, 0.174942, 0.171179, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing_size = 6.745
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64x58"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.619618, 0.470213, 0.186207, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gb0jd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.368627, 1, 0.368627, 1)
+
+[node name="PauseWindow" type="PanelContainer"]
+process_mode = 3
+process_priority = 12
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -116.0
+offset_right = 334.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dfdm")
+script = ExtResource("1_f4yxd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="MarginContainer/HBoxContainer/Control"]
+layout_mode = 2
+offset_left = -16.0
+offset_top = 110.0
+offset_right = 64.0
+offset_bottom = 134.0
+rotation = -1.5708
+text = "Sound"
+label_settings = SubResource("LabelSettings_a84fi")
+
+[node name="Sound" type="VSlider" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 4.0
+offset_right = 502.0
+offset_bottom = 43.0
+grow_horizontal = 2
+pivot_offset = Vector2(260, 21)
+size_flags_vertical = 2
+text = "Crazy Snowflakes"
+label_settings = SubResource("LabelSettings_ujkp1")
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46.575)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+focus_mode = 0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_27o33")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/hover = SubResource("StyleBoxFlat_yd112")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p2fhj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rfc2j")
+text = "Resume
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46.575)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_27o33")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/hover = SubResource("StyleBoxFlat_woq1v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_64x58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gb0jd")
+text = "Quit
+"
+
+[node name="Music" type="VSlider" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/HBoxContainer/Control2"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 39.0
+offset_right = 84.0
+offset_bottom = 63.0
+rotation = 1.5708
+text = "Music"
+label_settings = SubResource("LabelSettings_a84fi")

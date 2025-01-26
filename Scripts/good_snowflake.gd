@@ -79,6 +79,9 @@ func update_snowfloke(state: STATE):
 			if not was_slow:
 				transform_tween()
 			else:
+				var tween: Tween = get_tree().create_tween()
+				tween.tween_property(sprite, "scale", Vector2(1.8, 1.8), 0.15)
+				await tween.finished
 				current_state = STATE.BAD
 		STATE.BAD:
 			sprite.modulate = Color.RED
@@ -92,7 +95,8 @@ func update_snowfloke(state: STATE):
 func transform_tween():
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(sprite, "modulate", Color.BLACK, 0.2)
-	tween.tween_property(sprite, "modulate", Color.RED, 0.2)
+	tween.parallel().tween_property(sprite, "modulate", Color.RED, 0.2)
+	tween.tween_property(sprite, "scale", Vector2(1.8, 1.8), 0.15)
 	await tween.finished
 	if not is_slower:
 		current_state = STATE.BAD

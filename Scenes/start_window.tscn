@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbi03tnxasr6m"]
+[gd_scene load_steps=10 format=3 uid="uid://cbi03tnxasr6m"]
 
 [ext_resource type="Script" path="res://Scripts/start_window.gd" id="1_a0gk7"]
 [ext_resource type="FontFile" uid="uid://6roonmuax37p" path="res://assets_and_referens/fonts/TrueType (.ttf)/Kaph-Regular.ttf" id="1_axp3i"]
 [ext_resource type="FontFile" uid="uid://cdh1puptfo87y" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.ttf" id="2_2rp5w"]
-[ext_resource type="Texture2D" uid="uid://brklxd8r8fogs" path="res://assets_and_referens/Jef Bourgeau New Year's Day 2024.jpg" id="2_at6uu"]
+[ext_resource type="PackedScene" uid="uid://bb3p28y7ism03" path="res://Scenes/bg.tscn" id="2_e24po"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dfdm"]
 bg_color = Color(0.479952, 0.557318, 0.993644, 1)
@@ -16,10 +16,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n2cy3"]
-atlas = ExtResource("2_at6uu")
-region = Rect2(0, 0, 474, 300.336)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ujkp1"]
 font = ExtResource("1_axp3i")
@@ -79,19 +75,19 @@ script = ExtResource("1_a0gk7")
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-modulate = Color(1, 1, 1, 0.227451)
+[node name="BG" parent="Control" instance=ExtResource("2_e24po")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -165.0
-offset_top = -211.0
-offset_right = 165.0
-offset_bottom = 211.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_n2cy3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

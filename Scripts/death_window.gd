@@ -1,6 +1,8 @@
 extends PanelContainer
 
 func _ready() -> void:
+	if OS.has_feature("web"):
+		%Quit.hide()
 	%Restart.pressed.connect(_restart_pressed)
 	%Quit.pressed.connect(_quit_pressed)
 

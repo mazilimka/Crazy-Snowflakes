@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7fpb26vjyjy"]
+[gd_scene load_steps=9 format=3 uid="uid://b7fpb26vjyjy"]
 
 [ext_resource type="Script" path="res://Scripts/death_window.gd" id="1_tf7uy"]
 [ext_resource type="FontFile" uid="uid://bbaccdh2as3ar" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoPaint/NicoPaint-Monospaced.woff2" id="2_frnea"]
@@ -20,6 +20,31 @@ corner_radius_bottom_left = 20
 font = ExtResource("2_frnea")
 font_size = 55
 font_color = Color(0.718028, 0.718028, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb0vr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1.20327e-07, 0.174942, 0.171179, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing_size = 6.745
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e71m1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.619618, 0.470213, 0.186207, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfc2j"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -78,6 +103,8 @@ focus_mode = 0
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("3_upa7u")
 theme_override_font_sizes/font_size = 31
+theme_override_styles/hover = SubResource("StyleBoxFlat_rb0vr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e71m1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rfc2j")
 text = "Restart"
 
@@ -91,6 +118,8 @@ focus_mode = 0
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("3_upa7u")
 theme_override_font_sizes/font_size = 31
+theme_override_styles/hover = SubResource("StyleBoxFlat_rb0vr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e71m1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rfc2j")
 text = "Quit
 "

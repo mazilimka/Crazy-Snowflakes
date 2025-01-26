@@ -4,17 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://13uox2muyeih" path="res://Scenes/player.tscn" id="1_vcc6a"]
 [ext_resource type="PackedScene" uid="uid://dqxu6g58qey8x" path="res://Scenes/wall.tscn" id="3_mmdj0"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="4_1iki3"]
-[ext_resource type="Texture2D" uid="uid://brklxd8r8fogs" path="res://assets_and_referens/Jef Bourgeau New Year's Day 2024.jpg" id="4_77dcq"]
 [ext_resource type="PackedScene" uid="uid://2b4mqmpiovua" path="res://Scenes/death_window.tscn" id="5_3nav2"]
+[ext_resource type="PackedScene" uid="uid://bb3p28y7ism03" path="res://Scenes/bg.tscn" id="5_clt11"]
+[ext_resource type="Texture2D" uid="uid://c8exf8us5ygbl" path="res://assets_and_referens/Pause.png" id="6_aous2"]
 [ext_resource type="PackedScene" uid="uid://b7fpb26vjyjy" path="res://Scenes/victory_window.tscn" id="7_pyy5y"]
-[ext_resource type="PackedScene" uid="uid://cbi03tnxasr6m" path="res://Scenes/start_window.tscn" id="8_fak8o"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fveky"]
-atlas = ExtResource("4_77dcq")
-region = Rect2(0, 0, 474, 300.336)
+[ext_resource type="PackedScene" uid="uid://bp0vr7x2diakh" path="res://Scenes/pause_window.tscn" id="9_ums4b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_00hvs"]
-font_size = 51
+font_size = 65
+font_color = Color(0.980392, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjoqs"]
 bg_color = Color(0.19921, 0.428185, 1, 1)
@@ -65,6 +63,9 @@ corner_radius_bottom_left = 10
 [node name="Main" type="Node2D"]
 script = ExtResource("1_v328r")
 
+[node name="BG" parent="." instance=ExtResource("5_clt11")]
+z_index = -1
+
 [node name="Player" parent="." instance=ExtResource("1_vcc6a")]
 position = Vector2(407, 583)
 
@@ -94,20 +95,25 @@ anchor_mode = 0
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("4_1iki3")
 
-[node name="TextureRect" type="TextureRect" parent="UI"]
-modulate = Color(1, 1, 1, 0.227451)
-offset_right = 800.0
-offset_bottom = 600.0
-texture = SubResource("AtlasTexture_fveky")
-metadata/_edit_lock_ = true
+[node name="Pause" type="TextureButton" parent="UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+offset_left = 5.0
+offset_top = 19.0
+offset_right = 80.0
+offset_bottom = 94.0
+texture_normal = ExtResource("6_aous2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Health" type="Label" parent="UI"]
 unique_name_in_owner = true
-offset_right = 78.0
-offset_bottom = 70.0
+offset_left = 700.0
+offset_top = 1.0
+offset_right = 800.0
+offset_bottom = 91.0
 text = "3/3"
 label_settings = SubResource("LabelSettings_00hvs")
-metadata/_edit_lock_ = true
 
 [node name="BarBeforeSlowing" type="ProgressBar" parent="UI"]
 unique_name_in_owner = true
@@ -165,7 +171,7 @@ offset_right = 198.5
 unique_name_in_owner = true
 visible = false
 
-[node name="StartWindow" parent="UI" instance=ExtResource("8_fak8o")]
+[node name="PauseWindow" parent="UI" instance=ExtResource("9_ums4b")]
 unique_name_in_owner = true
 visible = false
 

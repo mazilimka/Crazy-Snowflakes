@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var showflaces_1: Sprite2D = $Showflaces1
 @onready var snowflake_scene := preload("res://Scenes/good_snowflake.tscn")
 @onready var health_label: Label = %Health
 @onready var shake_camera: Camera2D = $ShakeCamera
@@ -18,8 +19,9 @@ var min_time_to_snowf := 0.5
 var camera_shake_noice: FastNoiseLite
 
 func _ready() -> void:
-	if (ProjectSettings.get_setting("display/window/size/always_on_top")) == true:
-		printerr("Turn off Always on Top!!!")
+	#if (ProjectSettings.get_setting("display/window/size/always_on_top")) == true:
+		#printerr("Turn off Always on Top!!!")
+	
 	Global.Main = self
 	camera_shake_noice = FastNoiseLite.new()
 	%ShiftCounterBar.max_value = max_number_of_shift

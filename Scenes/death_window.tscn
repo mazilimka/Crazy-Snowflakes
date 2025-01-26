@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://2b4mqmpiovua"]
+[gd_scene load_steps=8 format=3 uid="uid://2b4mqmpiovua"]
 
 [ext_resource type="Script" path="res://Scripts/death_window.gd" id="1_h3p77"]
 [ext_resource type="FontFile" uid="uid://bepk58c3wap3b" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Monospaced.otf" id="2_egtxr"]
@@ -20,6 +20,31 @@ corner_radius_bottom_left = 20
 font = ExtResource("2_egtxr")
 font_size = 55
 font_color = Color(0.717647, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpbat"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1.20327e-07, 0.174942, 0.171179, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing_size = 6.745
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb1km"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.619618, 0.470213, 0.186207, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="DeathWindow" type="PanelContainer"]
 process_mode = 3
@@ -68,6 +93,8 @@ size_flags_vertical = 10
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_raug4")
 theme_override_font_sizes/font_size = 37
+theme_override_styles/hover = SubResource("StyleBoxFlat_mpbat")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fb1km")
 text = "Restart"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
@@ -78,5 +105,7 @@ size_flags_vertical = 10
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_raug4")
 theme_override_font_sizes/font_size = 37
+theme_override_styles/hover = SubResource("StyleBoxFlat_mpbat")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fb1km")
 text = "Quit
 "

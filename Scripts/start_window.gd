@@ -17,6 +17,8 @@ func open():
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		Global.is_mobile = true
 	if Input.is_action_just_pressed("escape") and not is_just_start:
 		_resume_pressed()
 		get_viewport().set_input_as_handled()
