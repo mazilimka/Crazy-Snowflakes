@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7hy3h8ifn1al"]
+
+[ext_resource type="Script" path="res://Scripts/good_snowflake.gd" id="1_7eapk"]
+[ext_resource type="Texture2D" uid="uid://dm7yn3pa6vduy" path="res://assets_and_referens/showflaces1.png" id="2_am0rf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84hgv"]
+radius = 11.0
+
+[node name="GoodSnowflake" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_7eapk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_am0rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_84hgv")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 0.499999)
+scale = Vector2(1.4, 1.35)

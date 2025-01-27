@@ -125,10 +125,10 @@ layout_mode = 2
 
 [node name="SoundLabel" type="Label" parent="MarginContainer/HBoxContainer/Control"]
 layout_mode = 2
-offset_left = -16.0
-offset_top = 110.0
-offset_right = 64.0
-offset_bottom = 134.0
+offset_left = -17.0
+offset_top = 126.0
+offset_right = 63.0
+offset_bottom = 150.0
 rotation = -1.5708
 text = "Sound"
 label_settings = SubResource("LabelSettings_a84fi")
@@ -137,7 +137,7 @@ label_settings = SubResource("LabelSettings_a84fi")
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
-step = 0.1
+step = 0.001
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -196,17 +196,17 @@ text = "Quit
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
-step = 0.1
+step = 0.001
 
 [node name="Control2" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/HBoxContainer/Control2"]
 layout_mode = 2
-offset_left = 15.0
-offset_top = 39.0
-offset_right = 84.0
-offset_bottom = 63.0
+offset_left = 16.0
+offset_top = 58.0
+offset_right = 85.0
+offset_bottom = 82.0
 rotation = 1.5708
 text = "Music"
 label_settings = SubResource("LabelSettings_a84fi")

@@ -21,9 +21,6 @@ func open():
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		Global.is_mobile = true
-	if Input.is_action_just_pressed("escape"):
-		_resume_pressed()
-		get_viewport().set_input_as_handled()
 
 
 func title_tween():
@@ -47,10 +44,6 @@ func title_tween():
 func _resume_pressed():
 	get_tree().paused = false
 	hide()
-
-
-func _set_bus_volume_db(bus_name: String, db: float):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus_name), linear_to_db(db))
 
 
 func _quit_pressed():

@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var press_shift: Label = %PressShift
 @onready var shift_counter_bar: ProgressBar = %ShiftCounterBar
 
+#var is_
 var tap_counter := 0
 var shift_counter := 0
 var tween_text_counter := 0
@@ -41,20 +42,15 @@ func _input(event: InputEvent) -> void:
 		press_shift_tween.kill()
 		press_shift.hide()
 		get_viewport().set_input_as_handled()
-	if event is InputEventScreenTouch and Global.is_mobile and tap_counter <= 2 and not can_slowing:
-		tap_counter += 1
-		if tap_counter == 2:
+	if event is InputEventScreenTouch and Global.is_mobile and not can_slowing:
+		if event.is_double_tap():
+			get_viewport().set_input_as_handled()
 			launch_slow_snowflakes_comp()
 			shift_counter += 1
 			shift_count(shift_counter)
 			can_slowing = true
 			press_shift_tween.kill()
 			press_shift.hide()
-			get_viewport().set_input_as_handled()
-			tap_counter = 0
-	if event.is_action_pressed("escape") or Input.is_action_just_pressed("escape"):
-		%PauseWindow.open()
-		get_viewport().set_input_as_handled()
 
 
 func shift_count(counter: int):

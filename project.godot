@@ -26,6 +26,7 @@ Global="*res://autoloads/Global.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 

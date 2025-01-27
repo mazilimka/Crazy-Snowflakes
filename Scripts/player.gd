@@ -30,7 +30,7 @@ var is_save_mode := false
 var max_jump_time := 0.5
 var hold_time := 0.0
 var is_jumping := false
-var health := 3:
+var health := 2:
 	set(value):
 		if health != value:
 			health = value
@@ -43,7 +43,6 @@ var health := 3:
 
 func _ready() -> void:
 	Global.Player = self
-	#mobile_controlls_tween()
 	if Global.is_mobile:
 		mobile_controlls_tween()
 	else:
@@ -70,6 +69,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and hold_time < max_jump_time and not is_jumping:
 		hold_time += delta
 		velocity.y = lerp(jump_velocity, max_jump_speed, hold_time / max_jump_time)
+		get_viewport().set_input_as_handled()
 	if Input.is_action_just_released("jump"):
 		is_jumping = true
 		hold_time = 0.0
@@ -83,6 +83,12 @@ func _physics_process(delta: float) -> void:
 				launch_particles()
 			is_first_touch = false
 	was_on_floor = is_on_floor()
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		await Global.await_a_few_msec(0.1) == true
+		get_viewport().set_input_as_handled()
 
 
 func mobile_controlls_tween():

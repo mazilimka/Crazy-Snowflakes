@@ -19,9 +19,6 @@ var min_time_to_snowf := 0.5
 var camera_shake_noice: FastNoiseLite
 
 func _ready() -> void:
-	#if (ProjectSettings.get_setting("display/window/size/always_on_top")) == true:
-		#printerr("Turn off Always on Top!!!")
-	
 	Global.Main = self
 	camera_shake_noice = FastNoiseLite.new()
 	%ShiftCounterBar.max_value = max_number_of_shift
@@ -54,7 +51,7 @@ func launch_snowflake():
 
 
 func update_health(health: int):
-	health_label.text = str(health) + "/3"
+	health_label.text = str(health) + "/2"
 
 
 func restart_game():

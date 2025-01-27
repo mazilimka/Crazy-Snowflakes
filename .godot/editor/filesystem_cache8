@@ -1,10 +1,10 @@
-ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737906650
-export_presets.cfg::TextFile::-1::1737904451::0::1::::<><>::
+fc8a56933c4b1c8d796fdb8f7a9f9475
+::res://::1737993393
+export_presets.cfg::TextFile::-1::1737924965::0::1::::<><>::
 icon.svg::CompressedTexture2D::2665141676214085729::1737692564::1737692571::1::::<><>::
 new_particle_process_material.tres::ParticleProcessMaterial::5954748263300398312::1737727362::0::1::::<><>::
 README.md::TextFile::-1::1737716643::0::1::::<><>::
-::res://assets_and_referens/::1737911568
+::res://assets_and_referens/::1737911569
 bg.png::CompressedTexture2D::192957296892528103::1737907678::1737907682::1::::<><>::
 Pause.png::CompressedTexture2D::7098737903286184101::1737911568::1737911569::1::::<><>::
 red_snowflake.png::CompressedTexture2D::3279204460466360583::1737910454::1737910456::1::::<><>::
@@ -101,25 +101,27 @@ glass-shatter_mjxklono.mp3::AudioStreamMP3::7758433201807620428::1737908294::173
 Global.gd::GDScript::-1::1737911422::0::1::::<>Node<>::
 ::res://components/::1737870495
 SlowSnowflakesComponent.gd::GDScript::-1::1737870495::0::1::::SlowSnowflakesComponent<>Node<>::
-::res://Scenes/::1737911466
-bg.tscn::PackedScene::2515372847582943534::1737911307::0::1::::<><>::uid://c0p8jerjuwux::::res://assets_and_referens/bg.png
-death_window.tscn::PackedScene::1898946237902072908::1737911307::0::1::::<><>::res://Scripts/death_window.gd<>uid://bepk58c3wap3b::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Monospaced.otf<>uid://7taalwuxe55j::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoPups/NicoPups-Regular.woff2
-good_snowflake.tscn::PackedScene::4648421953456990827::1737911466::0::1::::<><>::res://Scripts/good_snowflake.gd<>uid://dm7yn3pa6vduy::::res://assets_and_referens/showflaces1.png
-main.tscn::PackedScene::6542212858127942960::1737911307::0::1::::<><>::uid://13uox2muyeih::::res://Scenes/player.tscn<>res://test_scenes/test_main.gd<>uid://dqxu6g58qey8x::::res://Scenes/wall.tscn<>res://Scripts/ui.gd<>uid://2b4mqmpiovua::::res://Scenes/death_window.tscn<>uid://bb3p28y7ism03::::res://Scenes/bg.tscn<>uid://b7fpb26vjyjy::::res://Scenes/victory_window.tscn<>uid://cbi03tnxasr6m::::res://Scenes/start_window.tscn
-player.tscn::PackedScene::1883953102992186087::1737911307::0::1::::<><>::res://Scripts/player.gd<>uid://b3cpdsqgojvau::::res://assets_and_referens/Simple Shapes/Heart.png<>uid://cq3r3l8qroets::::res://new_particle_process_material.tres<>uid://cl56o8kj6dus3::::res://assets_and_referens/music/Sketchbook 2024-09-12.ogg
-start_window.tscn::PackedScene::4861114179177064478::1737911307::0::1::::<><>::res://Scripts/start_window.gd<>uid://6roonmuax37p::::res://assets_and_referens/fonts/TrueType (.ttf)/Kaph-Regular.ttf<>uid://cdh1puptfo87y::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.ttf<>uid://bb3p28y7ism03::::res://Scenes/bg.tscn
-victory_window.tscn::PackedScene::136579399310363362::1737911307::0::1::::<><>::res://Scripts/death_window.gd<>uid://bbaccdh2as3ar::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoPaint/NicoPaint-Monospaced.woff2<>uid://cdh1puptfo87y::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.ttf
+::res://Scenes/::1737993320
+bg.tscn::PackedScene::2515372847582943534::1737993320::0::1::::<><>::uid://c0p8jerjuwux::::res://assets_and_referens/bg.png
+death_window.tscn::PackedScene::1898946237902072908::1737993320::0::1::::<><>::res://Scripts/death_window.gd<>uid://bepk58c3wap3b::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Monospaced.otf<>uid://7taalwuxe55j::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoPups/NicoPups-Regular.woff2
+good_snowflake.tscn::PackedScene::4648421953456990827::1737970080::0::1::::<><>::res://Scripts/good_snowflake.gd<>uid://dm7yn3pa6vduy::::res://assets_and_referens/showflaces1.png
+main.tscn::PackedScene::6542212858127942960::1737970121::0::1::::<><>::res://Scripts/main.gd<>uid://13uox2muyeih::::res://Scenes/player.tscn<>uid://dqxu6g58qey8x::::res://Scenes/wall.tscn<>res://Scripts/ui.gd<>uid://2b4mqmpiovua::::res://Scenes/death_window.tscn<>uid://bb3p28y7ism03::::res://Scenes/bg.tscn<>uid://c8exf8us5ygbl::::res://assets_and_referens/Pause.png<>uid://b7fpb26vjyjy::::res://Scenes/victory_window.tscn<>uid://bp0vr7x2diakh::::res://Scenes/pause_window.tscn
+pause_window.tscn::PackedScene::3492169914968346603::1737993317::0::1::::<><>::uid://6roonmuax37p::::res://assets_and_referens/fonts/TrueType (.ttf)/Kaph-Regular.ttf<>res://Scripts/pause_window.gd<>uid://cdh1puptfo87y::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.ttf
+player.tscn::PackedScene::1883953102992186087::1737993317::0::1::::<><>::res://Scripts/player.gd<>uid://b3cpdsqgojvau::::res://assets_and_referens/Simple Shapes/Heart.png<>uid://cq3r3l8qroets::::res://new_particle_process_material.tres<>uid://cl56o8kj6dus3::::res://assets_and_referens/music/Sketchbook 2024-09-12.ogg
+start_window.tscn::PackedScene::4861114179177064478::1737993317::0::1::::<><>::res://Scripts/start_window.gd<>uid://6roonmuax37p::::res://assets_and_referens/fonts/TrueType (.ttf)/Kaph-Regular.ttf<>uid://cdh1puptfo87y::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.ttf<>uid://bb3p28y7ism03::::res://Scenes/bg.tscn
+victory_window.tscn::PackedScene::136579399310363362::1737993320::0::1::::<><>::res://Scripts/death_window.gd<>uid://bbaccdh2as3ar::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoPaint/NicoPaint-Monospaced.woff2<>uid://cdh1puptfo87y::::res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.ttf
 wall.tscn::PackedScene::8331034300102747033::1737723460::0::1::::<><>::
-::res://Scripts/::1737911463
-death_window.gd::GDScript::-1::1737795829::0::1::::<>PanelContainer<>::
+::res://Scripts/::1737970015
+death_window.gd::GDScript::-1::1737918595::0::1::::<>PanelContainer<>::
 good_snowflake.gd::GDScript::-1::1737911307::0::1::::<>Area2D<>::
-main.gd::GDScript::-1::1737907237::0::1::::<>Node2D<>::
-player.gd::GDScript::-1::1737909624::0::1::::<>CharacterBody2D<>::
+main.gd::GDScript::-1::1737970015::0::1::::<>Node2D<>::
+pause_window.gd::GDScript::-1::1737969871::0::1::::<>PanelContainer<>::
+player.gd::GDScript::-1::1737969692::0::1::::<>CharacterBody2D<>::
 start_window.gd::GDScript::-1::1737911463::0::1::::<>PanelContainer<>::
-ui.gd::GDScript::-1::1737903718::0::1::::<>CanvasLayer<>::
+ui.gd::GDScript::-1::1737924950::0::1::::<>CanvasLayer<>::
 ::res://styles/::1737823021
-::res://test_scenes/::1737911307
-test_snowflake.tscn::PackedScene::5173001701808472203::1737911307::0::1::::<><>::res://test_scenes/test_snowflake.gd<>uid://dm7yn3pa6vduy::::res://assets_and_referens/showflaces1.png
+::res://test_scenes/::1737922068
+test_main.gd::GDScript::-1::1737911828::0::1::::<>Node2D<>::
+test_main.tscn::PackedScene::7206786496238460271::1737922068::0::1::::<><>::res://Scripts/main.gd<>uid://13uox2muyeih::::res://Scenes/player.tscn<>uid://dqxu6g58qey8x::::res://Scenes/wall.tscn<>res://Scripts/ui.gd<>uid://bb3p28y7ism03::::res://Scenes/bg.tscn<>uid://2b4mqmpiovua::::res://Scenes/death_window.tscn<>uid://b7fpb26vjyjy::::res://Scenes/victory_window.tscn<>uid://cbi03tnxasr6m::::res://Scenes/start_window.tscn<>uid://dm7yn3pa6vduy::::res://assets_and_referens/showflaces1.png
 test_snowflake.gd::GDScript::-1::1737907156::0::1::::<>Area2D<>::
-test_main.gd::GDScript::-1::1737906792::0::1::::<>Node2D<>::
-test_main.tscn::PackedScene::7206786496238460271::1737911307::0::1::::<><>::res://Scripts/main.gd<>uid://13uox2muyeih::::res://Scenes/player.tscn<>uid://dqxu6g58qey8x::::res://Scenes/wall.tscn<>res://Scripts/ui.gd<>uid://bb3p28y7ism03::::res://Scenes/bg.tscn<>uid://2b4mqmpiovua::::res://Scenes/death_window.tscn<>uid://b7fpb26vjyjy::::res://Scenes/victory_window.tscn<>uid://cbi03tnxasr6m::::res://Scenes/start_window.tscn<>uid://dm7yn3pa6vduy::::res://assets_and_referens/showflaces1.png
+test_snowflake.tscn::PackedScene::5173001701808472203::1737922068::0::1::::<><>::res://test_scenes/test_snowflake.gd<>uid://dm7yn3pa6vduy::::res://assets_and_referens/showflaces1.png

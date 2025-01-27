@@ -133,6 +133,7 @@ randomness = 0.22
 position = Vector2(0, 16)
 
 [node name="BrokenWondowSound" type="AudioStreamPlayer" parent="."]
+volume_db = -66.565
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gi34c")
