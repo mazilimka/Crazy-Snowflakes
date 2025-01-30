@@ -4,7 +4,7 @@ var is_just_start := true
 
 func _ready() -> void:
 	%Start.pressed.connect(_start_pressed)
-	%Resume.pressed.connect(_resume_pressed)
+	%EndlessMode.pressed.connect(_endless_mode_pressed)
 	title_tween()
 
 
@@ -19,9 +19,6 @@ func open():
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		Global.is_mobile = true
-	if Input.is_action_just_pressed("escape") and not is_just_start:
-		_resume_pressed()
-		get_viewport().set_input_as_handled()
 
 
 func title_tween():
@@ -42,9 +39,9 @@ func title_tween():
 	tween_mod.tween_property(%Title, 'modulate', Color.WHITE, 2)
 
 
-func _resume_pressed():
-	get_tree().paused = false
-	hide()
+func _endless_mode_pressed():
+	Global.is_endless_mode = true
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
 
 func _start_pressed():

@@ -8,6 +8,7 @@ func _ready() -> void:
 	%Music.value_changed.connect(music_changed)
 	%Resume.pressed.connect(_resume_pressed)
 	%Quit.pressed.connect(_quit_pressed)
+	%Restart.pressed.connect(_restart_pressed)
 	%Sound.value = db_to_linear(Global.Player.broken_window_sound.volume_db)
 	%Music.value = db_to_linear(Global.Player.music.volume_db)
 	title_tween()
@@ -43,6 +44,11 @@ func title_tween():
 
 func _resume_pressed():
 	get_tree().paused = false
+	hide()
+
+
+func _restart_pressed():
+	Global.global_restart()
 	hide()
 
 

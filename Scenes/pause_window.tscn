@@ -176,7 +176,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_rfc2j")
 text = "Resume
 "
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 46.575)
 layout_mode = 2
@@ -190,6 +193,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_woq1v")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_64x58")
 theme_override_styles/normal = SubResource("StyleBoxFlat_gb0jd")
 text = "Quit
+"
+
+[node name="Restart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46.575)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_27o33")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/hover = SubResource("StyleBoxFlat_woq1v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_64x58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gb0jd")
+text = "Restart
 "
 
 [node name="Music" type="VSlider" parent="MarginContainer/HBoxContainer"]

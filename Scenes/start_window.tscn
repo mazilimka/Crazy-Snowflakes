@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbi03tnxasr6m"]
+[gd_scene load_steps=14 format=3 uid="uid://cbi03tnxasr6m"]
 
 [ext_resource type="Script" path="res://Scripts/start_window.gd" id="1_a0gk7"]
 [ext_resource type="FontFile" uid="uid://6roonmuax37p" path="res://assets_and_referens/fonts/TrueType (.ttf)/Kaph-Regular.ttf" id="1_axp3i"]
@@ -55,6 +55,20 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.368627, 1, 0.368627, 1)
 
+[sub_resource type="InputEventKey" id="InputEventKey_yrhv1"]
+device = -1
+keycode = 4194320
+
+[sub_resource type="Shortcut" id="Shortcut_7yliv"]
+events = [SubResource("InputEventKey_yrhv1")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_nlhh1"]
+device = -1
+keycode = 4194322
+
+[sub_resource type="Shortcut" id="Shortcut_od6j4"]
+events = [SubResource("InputEventKey_nlhh1")]
+
 [node name="StartWindow" type="PanelContainer"]
 process_mode = 3
 process_priority = 12
@@ -64,11 +78,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -238.0
-offset_top = -92.0
+offset_top = -107.0
 offset_right = 238.0
-offset_bottom = 92.0
+offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("MarginContainer/VBoxContainer/Start")
+focus_neighbor_bottom = NodePath("MarginContainer/VBoxContainer/EndlessMode")
+focus_next = NodePath("MarginContainer/VBoxContainer/Start")
+focus_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4dfdm")
 script = ExtResource("1_a0gk7")
 
@@ -91,6 +109,7 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+focus_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -98,17 +117,30 @@ theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("Start")
+focus_neighbor_bottom = NodePath("EndlessMode")
+focus_mode = 2
+theme_override_constants/separation = -29
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Control"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 process_mode = 2
-layout_mode = 2
-offset_top = 40.0
-offset_right = 452.0
-offset_bottom = 79.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -39.0
+grow_horizontal = 2
+grow_vertical = 0
 pivot_offset = Vector2(230, 19)
 size_flags_vertical = 10
 text = "Crazy Snowflakes"
@@ -128,11 +160,12 @@ theme_override_font_sizes/font_size = 31
 theme_override_styles/hover = SubResource("StyleBoxFlat_yd112")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p2fhj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rfc2j")
+shortcut = SubResource("Shortcut_7yliv")
 text = "Start!"
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="EndlessMode" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
+process_mode = 3
 custom_minimum_size = Vector2(0, 46.575)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -144,5 +177,6 @@ theme_override_font_sizes/font_size = 31
 theme_override_styles/hover = SubResource("StyleBoxFlat_yd112")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p2fhj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rfc2j")
-text = "Resume
+shortcut = SubResource("Shortcut_od6j4")
+text = "Endless Mode
 "

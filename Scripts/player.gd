@@ -20,7 +20,6 @@ var array_sounds := [
 	preload("res://assets_and_referens/sounds/glass-shatter_mjxklono.mp3")
 ]
 
-var input_event_screen_touch: InputEventScreenTouch
 var center_of_screen := 400.0
 var is_first_touch := true
 var was_on_floor := false
@@ -30,7 +29,7 @@ var is_save_mode := false
 var max_jump_time := 0.5
 var hold_time := 0.0
 var is_jumping := false
-var health := 2:
+var health := 3:
 	set(value):
 		if health != value:
 			health = value
@@ -51,7 +50,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	print(get_global_mouse_position().x)
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = lerp(velocity.x, (direction * max_speed), (acceleration * delta))

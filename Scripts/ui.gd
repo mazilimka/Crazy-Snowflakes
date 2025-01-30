@@ -4,13 +4,18 @@ extends CanvasLayer
 @onready var bar_before_slowing := %BarBeforeSlowing
 @onready var press_shift: Label = %PressShift
 @onready var shift_counter_bar: ProgressBar = %ShiftCounterBar
+@onready var score: Label = %Score
 
-#var is_
 var tap_counter := 0
-var shift_counter := 0
 var tween_text_counter := 0
 var press_shift_tween: Tween
 var can_slowing := true
+var shift_counter := 0:
+	set(value):
+		shift_counter = value
+		shift_count(value)
+		if Global.is_endless_mode:
+			endless_mode_count(value)
 var progress_before_slowing := 0: 
 	set(value):
 		progress_before_slowing = value
@@ -26,6 +31,11 @@ func _ready() -> void:
 	%Pause.pressed.connect(_pause_pressed)
 	timer_to_shift.timeout.connect(timer_to_shift_timeout)
 	progress_before_slowing = randi_range(5, 8)
+	if Global.is_endless_mode:
+		%VictoryWindow.queue_free()
+		shift_counter_bar.queue_free()
+		%Score.show()
+		return
 	shift_counter_bar.max_value = randi_range(5, 8)
 
 
@@ -37,7 +47,6 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shift") and not can_slowing:
 		launch_slow_snowflakes_comp()
 		shift_counter += 1
-		shift_count(shift_counter)
 		can_slowing = true
 		press_shift_tween.kill()
 		press_shift.hide()
@@ -47,13 +56,18 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			launch_slow_snowflakes_comp()
 			shift_counter += 1
-			shift_count(shift_counter)
 			can_slowing = true
 			press_shift_tween.kill()
 			press_shift.hide()
 
 
+func endless_mode_count(counter: int):
+	score.text = "Score " + str(counter)
+
+
 func shift_count(counter: int):
+	if Global.is_endless_mode:
+		return
 	shift_counter_bar.value = counter
 	if shift_counter_bar.value == shift_counter_bar.max_value:
 		get_tree().paused = true

@@ -13,7 +13,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7qce"]
 font_size = 50
-font_color = Color(0, 0.454902, 1, 1)
+font_color = Color(0.503198, 0.188049, 0.617188, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qls1o"]
 radius = 9.0
@@ -57,6 +57,7 @@ offset_left = -869.0
 offset_right = 401.0
 offset_bottom = 411.0
 color = Color(0.631373, 0.678431, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="LeftLabel" type="Label" parent="Controlls/LeftRect"]
 unique_name_in_owner = true
@@ -68,6 +69,7 @@ offset_right = 1190.0
 offset_bottom = 244.0
 text = "Move Left"
 label_settings = SubResource("LabelSettings_j7qce")
+metadata/_edit_use_anchors_ = true
 
 [node name="RightRect" type="ColorRect" parent="Controlls"]
 unique_name_in_owner = true
@@ -75,6 +77,7 @@ offset_left = 401.0
 offset_right = 1671.0
 offset_bottom = 411.0
 color = Color(0.89462, 0.631378, 0.82509, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="RightLabel" type="Label" parent="Controlls/RightRect"]
 unique_name_in_owner = true
@@ -86,6 +89,7 @@ offset_right = 356.0
 offset_bottom = 241.0
 text = "Move Right"
 label_settings = SubResource("LabelSettings_j7qce")
+metadata/_edit_use_anchors_ = true
 
 [node name="JumpRect" type="ColorRect" parent="Controlls"]
 unique_name_in_owner = true
@@ -94,6 +98,7 @@ offset_top = 417.0
 offset_right = 1387.0
 offset_bottom = 600.0
 color = Color(1, 0.454902, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="JumpLabel" type="Label" parent="Controlls/JumpRect"]
 unique_name_in_owner = true
@@ -105,6 +110,7 @@ offset_right = 1170.0
 offset_bottom = 122.0
 text = "Hold or press to Jump"
 label_settings = SubResource("LabelSettings_j7qce")
+metadata/_edit_use_anchors_ = true
 
 [node name="Heart" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -133,9 +139,11 @@ randomness = 0.22
 position = Vector2(0, 16)
 
 [node name="BrokenWondowSound" type="AudioStreamPlayer" parent="."]
-volume_db = -66.565
+process_mode = 3
+volume_db = -10.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("4_gi34c")
 volume_db = -14.24
 autoplay = true

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Sketchbook 2024-09-12.ogg-8ef7d1b5e60092253c8
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

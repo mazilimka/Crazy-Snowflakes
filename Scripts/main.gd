@@ -31,33 +31,42 @@ func _process(delta: float) -> void:
 			launch_snowflake()
 		timer = 0
 		time_to_launch_snowflakes = randf_range(time_to_snowf_incr_from, time_to_snowf_incr_to)
-	
-	global_timer += delta
-	if global_timer >= time_to_game_speeding_up:
-		if time_to_snowf_incr_from == min_time_to_snowf:
-			time_to_snowf_incr_to -= 0.5
-			time_to_snowf_incr_to = max(time_to_snowf_incr_to, min_time_to_snowf)
-			global_timer = 0
-			return
-		time_to_snowf_incr_from -= 0.2
-		time_to_snowf_incr_from = max(time_to_snowf_incr_from, min_time_from_snowf)
-		global_timer = 0
 
 
 func launch_snowflake():
 	var snowflake_instance: Area2D = snowflake_scene.instantiate()
 	%Snowflokes.add_child(snowflake_instance, true)
 	snowflake_instance.global_position.x = randf_range(50, 760)
+	Global.counter_of_snowflakes += 1
+	Snowflakes.set_difficulty(Global.counter_of_snowflakes)
+	set_difficulty(Global.counter_of_snowflakes)
 
 
 func update_health(health: int):
-	health_label.text = str(health) + "/2"
+	health_label.text = str(health) + "/3"
+
+
+func set_difficulty(difficult: int):
+	if difficult % 50 == 0:
+		if time_to_snowf_incr_from >= min_time_to_snowf:
+			time_to_snowf_incr_to -= 0.1
+			time_to_snowf_incr_to = max(time_to_snowf_incr_to, min_time_to_snowf)
+			return
+		time_to_snowf_incr_from -= 0.1
+		time_to_snowf_incr_from = max(time_to_snowf_incr_from, min_time_from_snowf)
+
+
+func set_def_defficulty():
+	time_to_snowf_incr_from = 0.8
+	time_to_snowf_incr_to = 2.0
 
 
 func restart_game():
 	get_tree().paused = true
 	%PressShift.hide()
-	%DeathWindow.show()
+	%DeathWindow.open()
+	if Global.is_endless_mode:
+		Global.UI.score.text
 
 
 func start_camera_shake(intensity: float):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://2b4mqmpiovua"]
+[gd_scene load_steps=10 format=3 uid="uid://2b4mqmpiovua"]
 
 [ext_resource type="Script" path="res://Scripts/death_window.gd" id="1_h3p77"]
 [ext_resource type="FontFile" uid="uid://bepk58c3wap3b" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Monospaced.otf" id="2_egtxr"]
+[ext_resource type="FontFile" uid="uid://h38jhsf3e65f" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoClean/NicoClean-Regular.otf" id="3_ngfly"]
 [ext_resource type="FontFile" uid="uid://7taalwuxe55j" path="res://assets_and_referens/fonts/NicoFontPack-v1.0/Base Font Files/NicoPups/NicoPups-Regular.woff2" id="3_raug4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xl61"]
@@ -20,6 +21,11 @@ corner_radius_bottom_left = 20
 font = ExtResource("2_egtxr")
 font_size = 55
 font_color = Color(0.717647, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f8v23"]
+font = ExtResource("3_ngfly")
+font_size = 27
+font_color = Color(0.294334, 0.753906, 0.0618439, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpbat"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -75,10 +81,20 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 2
 text = "YOU DIED!"
 label_settings = SubResource("LabelSettings_g4vmr")
 horizontal_alignment = 1
+
+[node name="EndScore" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 6
+text = "Your Score: "
+label_settings = SubResource("LabelSettings_f8v23")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

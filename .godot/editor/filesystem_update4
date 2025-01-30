@@ -1,4 +1,5 @@
 res://Scenes/main.tscn
+res://Scripts/ui.gd
 res://Scenes/player.tscn
 res://Scenes/pause_window.tscn
 res://Scenes/start_window.tscn
@@ -7,8 +8,9 @@ res://Scenes/death_window.tscn
 res://Scenes/victory_window.tscn
 res://Scenes/bg.tscn
 res://Scripts/main.gd
+res://Scripts/death_window.gd
 res://Scripts/player.gd
-res://Scripts/start_window.gd
-res://Scripts/ui.gd
-res://Scripts/pause_window.gd
+res://Scripts/victory_window.gd
+res://Scripts/good_snowflake.gd
 res://autoloads/Global.gd
+res://Scripts/pause_window.gd

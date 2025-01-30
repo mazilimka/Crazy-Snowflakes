@@ -1,16 +1,20 @@
 extends Area2D
+class_name Snowflakes
 
 enum STATE { GOOD, TRANSFORMATION, BAD, SLOW }
 
 @onready var sprite: Sprite2D = $Sprite2D
 
-var was_slow := false
-var is_slower := false
-var speeds := {
-	"good": randf_range(30, 50),
-	"bad": 600.0,
+static var from := 30.0
+static var to := 50.0
+static var speeds := {
+	"good": randf_range(from, to),
+	"bad": 500.0,
 	"slow": 20.0
 }
+
+var was_slow := false
+var is_slower := false
 var previous_speed := 0.0
 var speed := 0.0
 var previous_state: STATE
@@ -19,7 +23,6 @@ var current_state: STATE = STATE.GOOD:
 		if current_state != value: 
 			current_state = value
 			update_snowfloke(current_state)
-
 var time_to_transformation := randf_range(2, 6)
 var is_can_transform: bool
 var timer := 0.0
@@ -57,6 +60,19 @@ func _physics_process(delta: float) -> void:
 			good_snowflokes(delta)
 
 
+static func set_difficulty(difficult: int):
+	if difficult % 50 == 0:
+		from += 2
+		to += 2
+		speeds["good"] = randf_range(from, to)
+		speeds["bad"] = speeds["bad"] + 2
+
+
+static func set_def_difficulty():
+	speeds["good"] = randf_range(from, to)
+	speeds["bad"] = 500
+
+
 func good_snowflokes(delta: float):
 	global_position.y += speed * delta
 
@@ -72,7 +88,6 @@ func update_snowfloke(state: STATE):
 	match state:
 		STATE.GOOD:
 			sprite.modulate = Color.LIGHT_SKY_BLUE
-			#sprite.texture = load("res://assets_and_referens/showflaces1.png")
 			set_collision_mask_value(1, false)
 			speed = speeds["good"]
 		STATE.TRANSFORMATION:

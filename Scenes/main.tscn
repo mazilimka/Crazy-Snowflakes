@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0hdj4f70oa05"]
+[gd_scene load_steps=16 format=3 uid="uid://c0hdj4f70oa05"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_v328r"]
 [ext_resource type="PackedScene" uid="uid://13uox2muyeih" path="res://Scenes/player.tscn" id="1_vcc6a"]
@@ -13,6 +13,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_00hvs"]
 font_size = 65
 font_color = Color(0.980392, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tcvrt"]
+font_size = 43
+font_color = Color(1, 0, 0.914063, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjoqs"]
 bg_color = Color(0.19921, 0.428185, 1, 1)
@@ -113,8 +117,21 @@ offset_left = 700.0
 offset_top = 1.0
 offset_right = 800.0
 offset_bottom = 91.0
-text = "2/2"
+text = "3/3"
 label_settings = SubResource("LabelSettings_00hvs")
+
+[node name="Score" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -162.0
+offset_top = 99.0
+offset_bottom = 158.0
+grow_horizontal = 0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_tcvrt")
 
 [node name="BarBeforeSlowing" type="ProgressBar" parent="UI"]
 unique_name_in_owner = true
