@@ -17,6 +17,10 @@ func await_a_few_msec(number: float) -> bool:
 	return true
 
 
+func set_input_as_handled():
+	get_viewport().set_input_as_handled()
+
+
 func get_lvl() -> Node2D:
 	return get_tree().current_scene
 
@@ -24,6 +28,6 @@ func get_lvl() -> Node2D:
 func global_restart():
 	counter_of_snowflakes = 0
 	Snowflakes.set_def_difficulty()
-	Main.set_def_defficulty()
+	Main.set_def_difficulty()
 	get_tree().reload_current_scene()
 	get_tree().paused = false

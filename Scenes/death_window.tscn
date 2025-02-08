@@ -53,7 +53,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="DeathWindow" type="PanelContainer"]
-process_mode = 3
+process_mode = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -29,6 +29,7 @@ var is_save_mode := false
 var max_jump_time := 0.5
 var hold_time := 0.0
 var is_jumping := false
+var is_jumps := false
 var health := 3:
 	set(value):
 		if health != value:
@@ -59,18 +60,23 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		was_on_floor = true
+		#if Input.is_action_just_pressed("jump") or Input.is_action_pressed("jump"):
+			#return
 	else:
 		velocity.y = 0.0
 		was_on_floor = false
 		is_jumping = false
 	
 	if Input.is_action_pressed("jump") and hold_time < max_jump_time and not is_jumping:
+		#get_viewport().set_input_as_handled()
+		if not is_jumps:
+			is_jumps = true
 		hold_time += delta
 		velocity.y = lerp(jump_velocity, max_jump_speed, hold_time / max_jump_time)
-		get_viewport().set_input_as_handled()
 	if Input.is_action_just_released("jump"):
-		is_jumping = true
+		#get_viewport().set_input_as_handled()
 		hold_time = 0.0
+		is_jumping = true
 	
 	move_and_slide()
 	
@@ -83,10 +89,9 @@ func _physics_process(delta: float) -> void:
 	was_on_floor = is_on_floor()
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventScreenTouch:
-		await Global.await_a_few_msec(0.1) == true
-		get_viewport().set_input_as_handled()
+func stop_jumping():
+	hold_time = 0.0
+	is_jumping = true
 
 
 func mobile_controlls_tween():

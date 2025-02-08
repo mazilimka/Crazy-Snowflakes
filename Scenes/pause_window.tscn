@@ -93,7 +93,7 @@ border_width_bottom = 2
 border_color = Color(0.368627, 1, 0.368627, 1)
 
 [node name="PauseWindow" type="PanelContainer"]
-process_mode = 3
+process_mode = 2
 process_priority = 12
 anchors_preset = 8
 anchor_left = 0.5
@@ -149,6 +149,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
+z_index = 1
 layout_mode = 2
 offset_top = 4.0
 offset_right = 502.0

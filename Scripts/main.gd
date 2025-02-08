@@ -56,7 +56,7 @@ func set_difficulty(difficult: int):
 		time_to_snowf_incr_from = max(time_to_snowf_incr_from, min_time_from_snowf)
 
 
-func set_def_defficulty():
+func set_def_difficulty():
 	time_to_snowf_incr_from = 0.8
 	time_to_snowf_incr_to = 2.0
 

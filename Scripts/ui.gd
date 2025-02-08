@@ -61,6 +61,9 @@ func _input(event: InputEvent) -> void:
 			press_shift.hide()
 
 
+
+
+
 func endless_mode_count(counter: int):
 	score.text = "Score " + str(counter)
 
@@ -103,4 +106,5 @@ func text_tween():
 
 
 func _pause_pressed():
+	get_viewport().set_input_as_handled()
 	%PauseWindow.open()

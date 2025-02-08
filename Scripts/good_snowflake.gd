@@ -5,11 +5,10 @@ enum STATE { GOOD, TRANSFORMATION, BAD, SLOW }
 
 @onready var sprite: Sprite2D = $Sprite2D
 
-static var from := 30.0
-static var to := 50.0
+static var start_good_speed = 26.0; static var start_bad_speed = 380.0
 static var speeds := {
-	"good": randf_range(from, to),
-	"bad": 500.0,
+	"good": 26,
+	"bad": 400.0,
 	"slow": 20.0
 }
 
@@ -31,7 +30,7 @@ var direction
 func _ready() -> void:
 	body_entered.connect(player_entered)
 	%VisibleOnScreenEnabler2D.screen_exited.connect(screen_exited)
-	is_can_transform = -1 if randi() % 5 == 0 else 1
+	is_can_transform = -1 if randi() % 3 == 0 else 1
 	update_snowfloke(current_state)
 
 
@@ -61,16 +60,14 @@ func _physics_process(delta: float) -> void:
 
 
 static func set_difficulty(difficult: int):
-	if difficult % 50 == 0:
-		from += 2
-		to += 2
-		speeds["good"] = randf_range(from, to)
-		speeds["bad"] = speeds["bad"] + 2
+	if difficult % 40 == 0:
+		speeds["good"] = speeds["good"] + 5
+		speeds["bad"] = speeds["bad"] + 5
 
 
 static func set_def_difficulty():
-	speeds["good"] = randf_range(from, to)
-	speeds["bad"] = 500
+	speeds["good"] = start_good_speed
+	speeds["bad"] = start_bad_speed
 
 
 func good_snowflokes(delta: float):

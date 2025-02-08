@@ -15,11 +15,15 @@ func _ready() -> void:
 
 
 func open():
+	Global.Player.stop_jumping()
 	get_tree().paused = true
 	show()
 
 
 func _input(event: InputEvent) -> void:
+	#if Input.is_action_pressed("jump"):
+		#accept_event()
+	if Global.is_mobile: return
 	if event is InputEventScreenTouch:
 		Global.is_mobile = true
 
@@ -45,6 +49,8 @@ func title_tween():
 func _resume_pressed():
 	get_tree().paused = false
 	hide()
+	if Input.is_action_pressed("jump"):
+		accept_event()
 
 
 func _restart_pressed():
@@ -54,7 +60,6 @@ func _restart_pressed():
 
 func _quit_pressed():
 	get_tree().quit()
-
 
 
 func sound_changed(value: float):
