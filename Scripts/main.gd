@@ -28,7 +28,8 @@ func _process(delta: float) -> void:
 	timer += delta
 	if timer >= time_to_launch_snowflakes:
 		for i in randi_range(1, 4):
-			launch_snowflake()
+			#launch_snowflake()
+			pass
 		timer = 0
 		time_to_launch_snowflakes = randf_range(time_to_snowf_incr_from, time_to_snowf_incr_to)
 

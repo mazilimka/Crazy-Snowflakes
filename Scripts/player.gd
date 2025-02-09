@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+enum JumpState { ONGROUND, FALLING, RISING }
+
 @onready var particle_material = preload("res://new_particle_process_material.tres")
 @onready var broken_window_sound: AudioStreamPlayer = $BrokenWondowSound
 @onready var music: AudioStreamPlayer = $Music
@@ -28,8 +30,7 @@ var save_mode_timer := 0.0
 var is_save_mode := false
 var max_jump_time := 0.5
 var hold_time := 0.0
-var is_jumping := false
-var is_jumps := false
+var jump_state: JumpState = JumpState.ONGROUND 
 var health := 3:
 	set(value):
 		if health != value:
@@ -60,23 +61,20 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		was_on_floor = true
-		#if Input.is_action_just_pressed("jump") or Input.is_action_pressed("jump"):
-			#return
 	else:
 		velocity.y = 0.0
 		was_on_floor = false
-		is_jumping = false
+		jump_state = JumpState.ONGROUND
 	
-	if Input.is_action_pressed("jump") and hold_time < max_jump_time and not is_jumping:
-		#get_viewport().set_input_as_handled()
-		if not is_jumps:
-			is_jumps = true
-		hold_time += delta
-		velocity.y = lerp(jump_velocity, max_jump_speed, hold_time / max_jump_time)
-	if Input.is_action_just_released("jump"):
-		#get_viewport().set_input_as_handled()
-		hold_time = 0.0
-		is_jumping = true
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jump_state = JumpState.RISING
+	if jump_state == JumpState.RISING:
+		if Input.is_action_pressed("jump") and hold_time < max_jump_time:
+			hold_time += delta
+			velocity.y = lerp(jump_velocity, max_jump_speed, hold_time / max_jump_time)
+		if Input.is_action_just_released("jump") or hold_time > max_jump_time:
+			jump_state = JumpState.FALLING
+			hold_time = 0.0
 	
 	move_and_slide()
 	
@@ -89,9 +87,23 @@ func _physics_process(delta: float) -> void:
 	was_on_floor = is_on_floor()
 
 
+#func change_jump_state(state: JumpState):
+	#match state:
+		#JumpState.ONGROUND:
+			#is_falling = false
+			#hold_time = 0.0
+
+
+func try_jump() -> void:
+	if is_on_floor():
+		velocity.y = jump_velocity
+	else:
+		return
+
+
 func stop_jumping():
 	hold_time = 0.0
-	is_jumping = true
+	jump_state = JumpState.FALLING
 
 
 func mobile_controlls_tween():

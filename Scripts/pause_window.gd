@@ -21,8 +21,6 @@ func open():
 
 
 func _input(event: InputEvent) -> void:
-	#if Input.is_action_pressed("jump"):
-		#accept_event()
 	if Global.is_mobile: return
 	if event is InputEventScreenTouch:
 		Global.is_mobile = true

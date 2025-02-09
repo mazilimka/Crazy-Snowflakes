@@ -12,9 +12,9 @@ func get_component(_node: Node, comp_name: String):
 	return _node.get_node_or_null(comp_name)
 
 
-func await_a_few_msec(number: float) -> bool:
-	await get_tree().create_timer(number)
-	return true
+func await_a_few_msec(number: float) -> void:
+	var timer = get_tree().create_timer(number)
+	await timer.timeout
 
 
 func set_input_as_handled():
