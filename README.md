@@ -5,4 +5,4 @@
 Control:
 - **A, Left Arrow** — left
 - **D, Right Arrow** — right
-- **Space, Enter** — jump (in develompent)
+- **Space, Enter** — jump
