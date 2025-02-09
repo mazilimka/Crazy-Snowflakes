@@ -28,16 +28,16 @@ func _process(delta: float) -> void:
 	timer += delta
 	if timer >= time_to_launch_snowflakes:
 		for i in randi_range(1, 4):
-			#launch_snowflake()
+			launch_snowflake()
 			pass
 		timer = 0
 		time_to_launch_snowflakes = randf_range(time_to_snowf_incr_from, time_to_snowf_incr_to)
-
 
 func launch_snowflake():
 	var snowflake_instance: Area2D = snowflake_scene.instantiate()
 	%Snowflokes.add_child(snowflake_instance, true)
 	snowflake_instance.global_position.x = randf_range(50, 760)
+	## Example:
 	Global.counter_of_snowflakes += 1
 	Snowflakes.set_difficulty(Global.counter_of_snowflakes)
 	set_difficulty(Global.counter_of_snowflakes)

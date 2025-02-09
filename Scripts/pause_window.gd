@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func open():
-	Global.Player.stop_jumping()
+	Global.Player.force_stop_jumping()
 	get_tree().paused = true
 	show()
 

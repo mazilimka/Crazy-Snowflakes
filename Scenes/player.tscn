@@ -22,11 +22,10 @@ radius = 9.0
 z_index = 4
 collision_mask = 2
 script = ExtResource("1_at2ng")
-max_speed = 300.0
-friction = 2.0
 
 [node name="Controlls" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="LeftButton" type="TouchScreenButton" parent="Controlls"]
 modulate = Color(1, 1, 1, 0)
